@@ -1,0 +1,4114 @@
+object SC2FireD: TSIOXForm
+  Left = 482
+  Top = 165
+  ActiveControl = VSEdit50
+  BorderStyle = bsSingle
+  Caption = 'SX:UNO/SX:DUO (8SC2:004/8SC2-1:004) DFF-form'
+  ClientHeight = 531
+  ClientWidth = 584
+  Ctl3D = False
+  Color = 5592405
+  Font.Color = clBlack
+  Font.Height = -13
+  Font.Name = 'System'
+  Font.Style = [fsBold]
+  ShowHint = True
+  Visible = True
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 16
+  object VSVersion2: TVSVersion
+    Left = 8
+    Top = 8
+    Width = 212
+    Brush.Color = 4051374
+    ParentShowHint = False
+    Pen.Style = psClear
+    ShowHint = True
+    Font.Color = 16777214
+    Font.Height = -13
+    Font.Name = 'Arial Black'
+    Font.Style = [fsBold]
+    SioxBus = SioxBus1
+    SilentColor = 6579455
+    SilentString = 'Module is Silent (press F6)'
+    NotSilentColor = 4051374
+  end
+  object Label21: TLabel
+    Left = 373
+    Top = 28
+    Width = 16
+    Height = 18
+    Cursor = crHelp
+    Hint = 
+      'This showes the modules current\ngroup address and station addre' +
+      'ss.\nCannot be changed here, see setup tab.'
+    Caption = ' ? '
+    Color = 5592405
+    Font.Color = 4051374
+    Font.Height = -13
+    Font.Name = 'Arial black'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object Label81: TLabel
+    Left = 552
+    Top = 336
+    Width = 52
+    Height = 16
+    Caption = 'Label81'
+  end
+  object Label32: TLabel
+    Left = 275
+    Top = 31
+    Width = 61
+    Height = 15
+    Caption = 'ADDRESS'
+    Color = 5592405
+    Font.Color = 15658734
+    Font.Height = -13
+    Font.Name = 'lucida sans'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label36: TLabel
+    Left = 275
+    Top = 7
+    Width = 48
+    Height = 15
+    Caption = 'GROUP'
+    Color = 5592405
+    Font.Color = 15658734
+    Font.Height = -13
+    Font.Name = 'lucida sans'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label52: TLabel
+    Left = 491
+    Top = 29
+    Width = 16
+    Height = 18
+    Cursor = crHelp
+    Hint = 'Blink the LED for identification.'
+    Caption = ' ? '
+    Color = 5592405
+    Font.Color = 4051374
+    Font.Height = -13
+    Font.Name = 'Arial Black'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object Image4: TImage
+    Left = 521
+    Top = 6
+    Width = 58
+    Height = 37
+    Picture.Data = {
+      07544269746D6170340A0000424D340A00000000000086010000280000003A00
+      0000250000000100080000000000AE080000120B0000120B0000540000005400
+      000000000000FFFFFF00319E900019CEB8001DC6B10021BEAB0025B6A40029AE
+      9E002DA6970035968A00398D83003D857D00417D760045756F00496D69004D65
+      6200515D5C00F6F6F600F5F5F500F3F3F300F2F2F200EDEDED00EBEBEB00EAEA
+      EA00E9E9E900E6E6E600E5E5E500E4E4E400E2E2E200E1E1E100E0E0E000DFDF
+      DF00DDDDDD00DBDBDB00D8D8D800D6D6D600D3D3D300D2D2D200D1D1D100D0D0
+      D000CECECE00C9C9C900C6C6C600C5C5C500C4C4C400C3C3C300BABABA00B9B9
+      B900B5B5B500B3B3B300B2B2B200B1B1B100B0B0B000AAAAAA00A8A8A800A6A6
+      A600A2A2A2009A9A9A00999999009595950092929200919191008B8B8B008888
+      8800878787008585850083838300787878007373730072727200717171006E6E
+      6E006A6A6A00696969006868680066666600646464005F5F5F005E5E5E005C5C
+      5C005B5B5B005858580055555500FFFFFF005252525252525252525252525252
+      5252525252525252520E040303030305020F525252520B04050E525252525252
+      52520B04050E5252525252522020525252525252525252525252525252525252
+      52525252520703030303030303030B5252520303030852525252525252520303
+      03085252525252523A4352513E312D2C2C2C2C2C2C2C2C2C2C2C2C2C2C305052
+      52070303030303030303030D5252030303075252525252525252030303075252
+      5252525220204F26111111111111111111111111111111111111425252070303
+      030D0D0803030308525203030307525252525252525203030307525252525252
+      3C2F361111121F22222222222222222222222222222B4E525207030303525252
+      0503030452520303030303030309525252520303030303030309525220202011
+      1F4C525252525252525252525252525252525252520703030352525207030303
+      525203030303030303030D52525203030303030303030D525353131133525252
+      5252525252525252525252525252525252070303035252520703030352520303
+      0303030303040F52525203030303030303040F52303111113452525252525252
+      5252525252525252525252525207030303525252060303035252030303050A0A
+      0A0F52525252030303050A0A0A0F525253531111345252525252525252525252
+      5252525252525252520703030352520A03030307525203030307525252525252
+      5252030303075252525252525353111134525252525252525252525252525252
+      5252525252070303030303030303030B52520303030303030303030752520303
+      0303030303030307533A11113452525252525252525252525252525252525252
+      5207030303030303030302525252030303030303030303030D52030303030303
+      03030303202011113452525252525252525252525252525252525252520C0303
+      03030303060B52525252060303030303030303030F5206030303030303030303
+      3C2F1111345252525252525252525252525252525252525252520F0D0D0D0D10
+      525252525252100A0A0A0A0A0A0A0A0D5252100A0A0A0A0A0A0A0A0D20201111
+      3452525252525252525252525252525252525252525252525252525252525252
+      5252525252525252525252525252525252525252525252524553111135525252
+      5252525252525252525252525252525252525252525252525252525252525252
+      52525252525251271B4852525252525252525252532D11113752525252525252
+      5252525252525252525252525252525252525252525252525252525252525252
+      52524611113D5252525252525252525220201111375252525252525252525252
+      5252525252525252525252525252525252525252525252525252525252524411
+      113C525252525252525252525322111137525252525252525252525252525252
+      52525252525252525252525252525252525252525252525252524411113C5252
+      5252525252525252202011113752525252525252525252525252525252525252
+      525252525252525252525252525252525252525252524411113C525252525252
+      525252523C2F1111375252525252525252525252525252525252525252525252
+      5252525252525252525252525252525252524411113C52525252525252525252
+      5353111137525252525252525252525252525252525252525252525252525252
+      52525252525252525252525252524411113C5252525252525252525231531111
+      3752525252525252525252525252525252525252525252525252525252525252
+      525252525252525252524711113C525252525252525252522020111137525252
+      5252525252525252525252525252525252525252525252525252525252525252
+      5252525252524911113C52525252525252525252375311113752525252525252
+      5252525252525252525252525252525252525252525252525252525252525252
+      52524911113C52525252525252525252312B1111375252525252525252525252
+      5252525252525252525252525252525252525252525252525252525252524911
+      113C525252525252525252525353111137525252525252525252525252525252
+      52525252525252525252525252525252525252525252525252524911113C5252
+      5252525252525252535311113752525252525252525252525252525252525252
+      525252525252525252525252525252525252525252524911113C525252525252
+      5252525220201111151C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C
+      1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1A11113C52525252525252525252
+      5353111111111111111111111111111111111111111111111111111111111111
+      11111111111111111111111111111111113C525252525252525252523D221111
+      11111111111111111111111111111111111111111111111111293C3C3C2B1121
+      3B3C3C321117393C3C381411113C525252525252525252525353111111111111
+      1111111111111111111111111111111111111111114A5252524C113E52525252
+      1935525252522D11113C52525252525252525252535311111111111111111111
+      11111111111111111111111111111111114D5252524D113F525252521C375252
+      52522E11113C5252525252525252525253531111111111111111111111111111
+      111111111111111111111111114D5252524D113F525252521C37525252522E11
+      113C525252525252525252522F53141111111111111111111111111111111111
+      1111111111111111114352525245113A5252524F152F525252522411113C5252
+      5252525252525252203C25111111111111111111111111111111111111111111
+      1111111111162A2C2B181114292C2C1D1111282C2C231111113C525252525252
+      5252525253534011111111111111111111111111111111111111111111111111
+      1111111111111111111111111111111111111111113E52525252525252525252
+      5331524128151111111111111111111111111111111111111111111111111111
+      111111111111111111111111111111111E4B5252525252525252525253530000}
+  end
+  object Container1: TContainer
+    Left = 0
+    Top = 0
+    Width = 28
+    Height = 28
+    TabOrder = 0
+    Glyph.Data = {
+      F6060000424DF606000000000000360000002800000018000000180000000100
+      180000000000C006000000000000000000000000000000000000008080008080
+      0080800080800080800080800080800080800080800080800080800080800080
+      8000808000808000808000808000808000808000808000808000808000808000
+      8080008080008080008080008080008080008080008080008080008080008080
+      0080800080800080800000008080800000000080800080800080800080800080
+      8000808000808000808000808000808000808000808000808000808000808000
+      8080008080008080008080008080000000808080808080000000008080008080
+      0080800080800080800080800080800080800080800080800080800080800080
+      8000808000808000808000808000808000808000808000000080808000000000
+      8080008080008080008080008080008080008080008080008080008080008080
+      0080800080800080800080800080800080800080800080800080800000008080
+      8080808000000000808000808000808000808000808000808000808000808000
+      8080008080008080008080008080008080008080008080008080008080000000
+      0000008080808080800000000080800080800080800080800080800080800080
+      8000808000808000808000808000808000808000808000808000000000000000
+      0000000000808080808080808080000000008080008080008080008080008080
+      0080800080800080800080800080800080800080800080800080800000000000
+      0080808080808080808080808080808000000000000000808000808000808000
+      8080008080008080008080008080008080008080008080008080008080008080
+      0000008080808080808080800000000000000000000000000080800080800080
+      8000808000808000808000808000808000808000808000808000808000808000
+      8080008080000000808080808080000000000000008080008080008080008080
+      0080800080800080800080800080800080800080800080800080800080800080
+      8000808000808000808000808000000080808000000000808000808000808000
+      8080008080008080008080008080008080008080008080008080008080008080
+      0080800080800080800080800080800080800080800000008080800000000080
+      8000808000808000808000808000808000000000000000000000000000000000
+      0000000000000000000000000000008080008080008080008080008080000000
+      8080800000000080800080800080800080800080800000008080808080808080
+      8080808080808080808080808080808080808000000000808000808000808000
+      8080008080000000808080000000008080008080008080008080008080000000
+      8080800000008080800000008080800000008080800000008080800000000000
+      0000000000808000808000808000000080808080808000000000000000808000
+      8080008080000000808080000000808080000000808080000000808080000000
+      808080000000FFFFFF0000000080800080800080800080800000008080808080
+      8080808000000000000000000000000080808000000080808000000080808000
+      0000808080000000808080000000FFFFFF000000008080008080008080008080
+      0080800000000000008080808080808080808080808080808080800000008080
+      80000000808080000000808080000000808080000000FFFFFF00000000808000
+      8080008080008080008080008080008080000000000000000000000000000000
+      808080000000808080000000808080000000808080000000808080000000FFFF
+      FF00000000808000808000808000808000808000808000808000808000808000
+      8080008080000000808080000000808080000000808080000000808080000000
+      808080000000FFFFFF0000000080800080800080800080800080800080800080
+      8000808000808000808000808000000080808000000080808000000080808000
+      0000808080000000808080000000000000000000008080008080008080008080
+      0080800080800080800080800080800080800080800000008080808080808080
+      8080808080808080808080808080808080808000000000808000808000808000
+      8080008080008080008080008080008080008080008080008080008080008080
+      0000000000000000000000000000000000000000000000000000000000000080
+      8000808000808000808000808000808000808000808000808000808000808000
+      8080008080008080008080008080008080008080008080008080008080008080
+      0080800080800080800080800080800080800080800080800080800080800080
+      8000808000808000808000808000808000808000808000808000808000808000
+      8080008080008080008080008080008080008080008080008080}
+    ContainerComponent = SioxBus1
+  end
+  object TabbedNotebook1: TTabbedNotebook
+    Left = -2
+    Top = 43
+    Width = 588
+    Height = 490
+    Font.Color = 15658734
+    Font.Height = -13
+    Font.Name = 'Arial Black'
+    Font.Style = [fsBold]
+    TabFont.Color = clOlive
+    TabFont.Height = -11
+    TabFont.Name = 'Arial Black'
+    TabFont.Pitch = fpVariable
+    TabFont.Style = []
+    TabOrder = 3
+    object TTabPage
+      Left = 4
+      Top = 29
+      Caption = 'RUN'
+      object Label61: TLabel
+        Left = 384
+        Top = 220
+        Width = 185
+        Height = 18
+        Caption = 'Module'#39's PLC program'
+      end
+      object Label62: TLabel
+        Left = 384
+        Top = 316
+        Width = 146
+        Height = 18
+        Caption = 'Local text field 2'
+      end
+      object Label46: TLabel
+        Left = 384
+        Top = 268
+        Width = 138
+        Height = 18
+        Caption = 'Local text field 1'
+      end
+      object Image1: TImage
+        Left = 386
+        Top = 440
+        Width = 186
+        Height = 15
+        Picture.Data = {
+          07544269746D6170100F0000424D100F0000000000000A04000028000000BA00
+          00000F0000000100080000000000060B0000120B0000120B0000F5000000F500
+          000000000000FFFFFF00555555003FD1AE00585456004D484A00090305000A04
+          06002A2124003B3235004A41440039363700958F9100595657001F151800241A
+          1D000C05070018111300867F81000F070900140C0E00160E1000221A1C001511
+          1200453D3F00261D1F0030272900050000005B5959006261610084838300585A
+          59008187850073858000747B790038D0AB0037CFAA003AD2AD003DD8B20042D0
+          AD003EC0A00045D0AE0043CBAA003CA58B0044B69A0041AC920046A9910054B1
+          9A0058B39C0063C9B00061C3AB0067C8B000509A880063B8A3006EBCA9005286
+          79004E7F730078BCAB007BBCAC007EC0B000567F75007CADA10080B0A40086B3
+          A8007C9D95007B9B9300576B6600839F9800879B96007E8E8A008797930034CF
+          AA0035D0AB0036D0AB0037D1AC0038D0AC0039CFAB003CD6B1003BD3AF003ACF
+          AB003BD0AC003DD5B1003DD3AF003AC8A6003DD0AD003ED0AD003CC9A70040D1
+          AE003ECBA9003EC9A8003CC4A40040CDAB003FCCAA0043D1AF0049CEAE0042B9
+          9D0041B69A0046BEA10043B69B0049C3A60048C2A50044B79C0044B59A004BC4
+          A80051CEB00045AF960045AE950045A9910053CAAE0059D2B50047A68F0047A5
+          8F004AA69000489F8A00489C8800499A870052AA950063C6AF006AC5AF004C8A
+          7B004C8678004D83760079B9AA0080BDAF0087B6AB007CA79D00516C66007DA4
+          9B00779991005268630088AAA20083A19A0053605D00535C5A007E9792007C93
+          8E00899C9800717675005E6A68006F7574008286860063666600858686004A4A
+          4B0069696A0063636400FEFEFE00FCFCFC00FAFAFA00F8F8F800F6F6F600F4F4
+          F400F3F3F300F0F0F000EEEEEE00EDEDED00EBEBEB00E8E8E800E6E6E600E5E5
+          E500E2E2E200E1E1E100DEDEDE00DDDDDD00DBDBDB00D8D8D800D6D6D600D5D5
+          D500D2D2D200D1D1D100CECECE00CCCCCC00CBCBCB00C9C9C900C6C6C600C4C4
+          C400C3C3C300C0C0C000BEBEBE00BCBCBC00BABABA00B8B8B800B7B7B700B4B4
+          B400B3B3B300B0B0B000AEAEAE00ACACAC00AAAAAA00A9A9A900A6A6A600A4A4
+          A400A2A2A200A0A0A0009F9F9F009C9C9C009A9A9A0098989800979797009494
+          940092929200909090008E8E8E008D8D8D008B8B8B008A8A8A00898989008686
+          8600848484008383830082828200818181007F7F7F007E7E7E007C7C7C007A7A
+          7A0078787800777777007474740072727200717171006E6E6E006D6D6D006B6B
+          6B006A6A6A006969690068686800666666006464640062626200616161006060
+          60005E5E5E005C5C5C005B5B5B00585858005656560052525200464646003E3E
+          3E002D2D2D00141414000F0F0F0009090900FFFFFF0002020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          02020202020202020202020202020202000002ECECEC1F6B6265666A72388502
+          02E0DBDBDBE5EA91D98C8CE40202847971692C656034ECECECEC0202ECD0BBAE
+          A7A5ACBFE3021CBBB5B5DA020202D0B7AAA5A7B0C4E302C9B4B5B5CD02020202
+          D9B6B5B5B8E902020202D5BEB0A7A5AABCDF020202021FCBB5A9A5A8B2C7E802
+          02E8B9B5B5B5B5B5B5B5B5D702EBCBB4A9A5A6ADBDDA0202020202DBB5B5B5CF
+          020202CFB5B5C3020202DEBFAEA6A5ABBAD6020202CFB5B5BDEB0202DCB6B5B5
+          C8EBCDBAADA6A5ADC3E80202000002DFD5D5D564510303030303283CCD0DF300
+          000000000000F2908C375A03030303034D2FD3D3D3DF0202E393010101010101
+          9CDA1C940101C502E6AC010101010101019ACFCE01010195DA0202E89F010101
+          A71F020202E89801010101010199D40202DDA401010101010101A0D802E00101
+          01010101010101C3E9A60101010101010194C102020202C8010101B4020202B4
+          0101A20202C39701010101010101B31C02B4010196E802EBA5010101ACDA0101
+          0101010101A3E30200F402D51C1C1C6352030303030303253905000000000000
+          000000000B7C5755030303034E308F8F8FD30202DC9201010101010101A7E899
+          0101C702AC01010101010101010194DEBC010101A0E702B401010199E2020202
+          02E396010101010101019FEBE9A00101010101010101019AE5E4950101010101
+          010101C7C201010101010101010192DC020202CA010101B7020202B70101A502
+          CE01010101010101010101B602B701019BE802C001010101B0D3010101010101
+          0101B20200F402D51C8E20675403030303030355503F08000000000000000000
+          000A3A49030303034B35D3D38FD30202D50195ADC5D0B7010194D89C0101CBD3
+          0101010195A09C01010101AE02AC010101AFCB01010101CA0202020202DB0193
+          AAC3D0BF930101DDC80101010198A19901010101BAE7950101929696969696CA
+          AC01010194A4A001010101C5020202CA010101B7020202B70101A6ECA3010101
+          019DA09301010193E4B901019BEBDE9601010101B0C90198B1C8D0B201019B02
+          00F402D51C1C1C6151030303030303034F688813000000000000000000008B33
+          4703030326708F8FEED30202DCBAE302E68EAE010192D29C0101CCB7010101A8
+          DEEBE8C092010198E8E79D01010192010101B2020202020202E0B8DC02E8D2B5
+          920101D7AF010101ADE2EBE5BA0101019FDE960101A2E3E3E3E3E3EBA4010193
+          D002EBB3010101C3020202CA010101B7020202B70101A9DB92010196CBEAEBD8
+          9D010101C9BC01019CEBAA0101010101AED5BBE702E3CCAA0101970200F402DF
+          D5D5D55F56595C25500303030324754609191A0F1B0000000000074576275859
+          5374D3D3D3DF02020202CBA8950101010198DD9B0101C9AB010192D702020202
+          A2010192DB02D6950101010101A2E70202020202020202D4AA960101010193DD
+          A3010194DE020202EC9D010198D6980101A4020202020202A401019CEB0202CE
+          010101C3020202CA010101B7020202B70101AACA010101B202020202C7010101
+          BDBC01019FBF010101010101AB0202C7A49301010101A00200F4020202020287
+          8686403D322303030303246C7A7F807D83040000000000068D40418686210202
+          0202020202B901010101010101BAEB990101C7A8010195E202020202AC010101
+          D90202BF0101010193DA0202020202020202C001010101010101B3EC9E010198
+          E802020202A6010196D3980101A4020202020202A401019DEA0202CD010101C3
+          020202CA010101B7020202B70101AAC6010101BE02020202D9010101B9BB0101
+          9493010194960101ACECB101010101010101C50200F402DFD5D51E121111140E
+          89362403030303504A4B244A293B900000000000001B1511110CD3D3D3DF0202
+          DD9201010101019BBF02E8990101C9AB010192D802020202A3010192DB021FAA
+          0101010192BD02020202020202E395010101010199BB0202A1010194DE020202
+          EC9D010198D6980101A3020202020202A401019DEA0202CC010101C3020202CA
+          010101B7020202B70101AAC9010101B202020202C8010101BDBC010101010101
+          BDA20101B0D50101010101019FC8020200F402D58F8F8FEE0000000000223124
+          030303030303030354487B18000000000000000000F08F8F8FD30202CD010192
+          A5C0D7E8D9D5E9990101CCB6010101A9E0ECE9C192010198E702B50101010101
+          0101C8020202020202D5010101A3BED3E7DBD002AB010101AEE3ECE7BB010101
+          9FDE960101A3020202020202A401019DEA0202CC010101C3020202CF010101B9
+          020202B70101A9DA92010196CD1CECDA9D010101C9BC0101010101A5EA9E0101
+          B1C2010193AAC3D9E9D3DA0200F402D58FD8D5EE000000000010435E50030303
+          0303030303545D82110000000000000000F0D3D38FD302028E010193C1D3C3AA
+          01B602990101CBD20101010196A19D01010101AC02C501010101AA92010196DC
+          0202020202D7010192BCD3C6AD93AD02C40101010198A29A01010101B9E79501
+          01A3020202020202A401019DEA0202CC010101C5D3BCBCAE010101A4BCBCCEB9
+          0101A6ECA2010101019EA19401010193E3B90101010194DA029D0101B1C40101
+          97C8D2C1A501C30200F402D58F8F8FEE000000000000163E2A55030303030303
+          03034C6D441700000000000000F08F8F8FD30202E39601010101010101C10299
+          0101C702AA01010101010101010193DCD393010101B2ECB6010101A2E9020202
+          02E89B01010101010101B802E89F01010101010101010199E4E4950101A30202
+          02020202A401019DEA0202CC010101C7B2010101010101010101AABA0101A502
+          CC01010101010101010101B502B701010101BB021C9D0101AEDC010101010101
+          0101CE0200F402DFD3D4D3EF0000000000F11DCC422D55030303030303035B2B
+          8AD30AF20000000000EDD3D3D3DF020202C492010101010101CBEB940101C502
+          E5AA0101010101010199CBE194010101A8EB021CA5010101B0EC02020202CE96
+          010101010101C20202DCA3010101010101019ED602E00101019F020202020202
+          A0010199EA0202CA010101C5B2010101010101010101AAB70101A20202C29501
+          010101010101B11C02B4010101A0EA021C990101A802BE01010101010101D902
+          00F40202020202D7D7D7D68ED6D6E40202027E77726E2E6F737881020202E1D7
+          D7D7D7D7D7D30202020202020202D6B6A5A0A7B4C7E9EBBBB5B5DA020202CEB4
+          A7A0A3AEC2E202D9B4B5B5B7E3020202E0B7B5B5BBEB0202020202DBB8A6A0A5
+          B2C5E7020202EAC8B2A5A0A4AFC5E70202E8B9B5B5C2020202020202C1B2B2BC
+          EB0202DDB3B2B2DACEB5B5B5B5B5B5B5B5B5C8D3B5B5C3020202DCBDACA2A0A9
+          B8D3020202CFB5B5B6DA0202ECBFB5B5C70202D1B2A3A0A8B7CBEB0200F40202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          02020202020202020202020202020202020202020202020200F40000}
+      end
+      object Label3: TLabel
+        Left = 556
+        Top = 264
+        Width = 16
+        Height = 18
+        Cursor = crHelp
+        Hint = 
+          'This text field is saved locally in the module.\nIt is shown in ' +
+          'it'#39's own column after a search\nin SIOX Tools. To change this te' +
+          'xt string, go\nto the setup tab. Note that this text field 1\nis' +
+          ' searchable in SIOX Tools!'
+        Caption = ' ? '
+        Color = 5592405
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object Label25: TLabel
+        Left = 556
+        Top = 312
+        Width = 16
+        Height = 18
+        Cursor = crHelp
+        Hint = 
+          'This text field is saved locally in the module.\nIt is shown in ' +
+          'it'#39's own column after a search\nin SIOX Tools. To change this te' +
+          'xt string, go\nto the setup tab.'
+        Caption = ' ? '
+        Color = 5592405
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object GroupBox19: TGroupBox
+        Left = 8
+        Top = 8
+        Width = 172
+        Height = 150
+        Caption = 'OPERATION STATE'
+        Color = 6579300
+        Ctl3D = False
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 0
+        object Label2: TLabel
+          Left = 156
+          Top = 36
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'Either external cause,\nlocal smoke detected\nor over-temperatur' +
+            'e.'
+          Caption = ' ? '
+          Color = 6710886
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object VSCheckbox32: TVSCheckbox
+          Left = 8
+          Top = 20
+          Width = 156
+          Height = 17
+          Cursor = crNo
+          SioxBus = SioxBus1
+          ParameterNr = 32
+          CommType = ctRead
+          ParamMaskStr = '0001'
+          SilentColor = 6579300
+          ActiveColor = 3911571
+          PassiveColor = 6579300
+          Caption = 'Stand by'
+          Ctl3D = False
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida Sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentCtl3D = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+        end
+        object VSCheckbox33: TVSCheckbox
+          Left = 8
+          Top = 56
+          Width = 156
+          Height = 17
+          Cursor = crNo
+          SioxBus = SioxBus1
+          ParameterNr = 32
+          CommType = ctRead
+          ParamMaskStr = '0010'
+          SilentColor = 6579300
+          ActiveColor = 1880762
+          PassiveColor = 6579300
+          Caption = 'Function test'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+        end
+        object VSCheckbox34: TVSCheckbox
+          Left = 8
+          Top = 38
+          Width = 148
+          Height = 17
+          Cursor = crNo
+          SioxBus = SioxBus1
+          ParameterNr = 32
+          CommType = ctRead
+          ParamMaskStr = '0002'
+          SilentColor = 6579300
+          ActiveColor = 6382043
+          PassiveColor = 6579300
+          Caption = 'Fire alarm'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+        end
+        object VSCheckbox35: TVSCheckbox
+          Left = 8
+          Top = 74
+          Width = 156
+          Height = 17
+          Cursor = crNo
+          SioxBus = SioxBus1
+          ParameterNr = 32
+          CommType = ctRead
+          ParamMaskStr = '0008'
+          SilentColor = 6579300
+          ActiveColor = 6382043
+          PassiveColor = 6579300
+          Caption = 'Damper error (Ch 1)'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+        end
+        object VSCheckbox36: TVSCheckbox
+          Left = 8
+          Top = 92
+          Width = 156
+          Height = 17
+          Cursor = crNo
+          SioxBus = SioxBus1
+          ParameterNr = 32
+          CommType = ctRead
+          ParamMaskStr = '0020'
+          SilentColor = 6579300
+          ActiveColor = 6382043
+          PassiveColor = 6579300
+          Caption = 'Damper error (Ch 2)'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+        end
+        object VSCheckbox37: TVSCheckbox
+          Left = 8
+          Top = 128
+          Width = 160
+          Height = 17
+          Cursor = crNo
+          SioxBus = SioxBus1
+          ParameterNr = 8
+          CommType = ctRead
+          ParamMaskStr = '0010'
+          SilentColor = 6579300
+          ActiveColor = 3911571
+          PassiveColor = 49610
+          ActiveCaption = 'Alarm relay - Closed'
+          PassiveCaption = 'Alarm relay - Open'
+          Caption = 'Alarm relay'
+          Ctl3D = False
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentCtl3D = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+        end
+        object VSCheckbox38: TVSCheckbox
+          Left = 8
+          Top = 110
+          Width = 156
+          Height = 17
+          Cursor = crNo
+          SioxBus = SioxBus1
+          ParameterNr = 32
+          CommType = ctRead
+          ParamMaskStr = '0080'
+          SilentColor = 6579300
+          ActiveColor = 6382043
+          PassiveColor = 6579300
+          Caption = 'Over-temperature'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 6
+        end
+      end
+      object GroupBox4: TGroupBox
+        Left = 188
+        Top = 8
+        Width = 191
+        Height = 150
+        Caption = 'TEST COMMANDS'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 1
+        object Label45: TLabel
+          Left = 159
+          Top = 92
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 'Fireman'#39's command, over-\nrides Fire Alarm closing.'
+          Caption = ' ? '
+          Color = 6710886
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label47: TLabel
+          Left = 159
+          Top = 74
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 'E.g. for night operation.'
+          Caption = ' ? '
+          Color = 6710886
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object VSCheckbox5: TVSCheckbox
+          Left = 8
+          Top = 20
+          Width = 178
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 44
+          ParamMaskStr = '0002'
+          SilentColor = 6579300
+          ActiveColor = 6382043
+          PassiveColor = 6579300
+          Caption = 'External fire alarm'
+          Ctl3D = False
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentCtl3D = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+        end
+        object VSCheckbox6: TVSCheckbox
+          Left = 8
+          Top = 38
+          Width = 178
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 44
+          ParamMaskStr = '0010'
+          SilentColor = 6579300
+          ActiveColor = 1880762
+          PassiveColor = 6579300
+          Caption = 'Function test'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+        end
+        object VSCheckbox8: TVSCheckbox
+          Left = 8
+          Top = 56
+          Width = 178
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 44
+          ParamMaskStr = '0004'
+          SilentColor = 6579300
+          ActiveColor = 1880762
+          PassiveColor = 6579300
+          Caption = 'Reset smoke detector'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+        end
+        object VSCheckbox10: TVSCheckbox
+          Left = 8
+          Top = 74
+          Width = 147
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 44
+          ParamMaskStr = '0008'
+          SilentColor = 6579300
+          ActiveColor = clBtnFace
+          PassiveColor = clBtnFace
+          Caption = 'Close dampers'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+        end
+        object VSCheckbox20: TVSCheckbox
+          Left = 8
+          Top = 92
+          Width = 146
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 44
+          ParamMaskStr = '0001'
+          SilentColor = 6579300
+          ActiveColor = clBtnFace
+          PassiveColor = clBtnFace
+          Caption = 'Force opening'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+        end
+      end
+      object GroupBox3: TGroupBox
+        Left = 386
+        Top = 8
+        Width = 186
+        Height = 150
+        Caption = 'SMOKE DETECTORS'
+        Color = 6579300
+        Ctl3D = False
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 2
+        object GroupBox6: TGroupBox
+          Left = 1
+          Top = 16
+          Width = 185
+          Height = 110
+          Caption = '- Operation state'
+          Ctl3D = False
+          ParentCtl3D = False
+          TabOrder = 0
+          object Label58: TLabel
+            Left = 161
+            Top = 90
+            Width = 16
+            Height = 18
+            Cursor = crHelp
+            Hint = 
+              'This flag is set at loop error and over-temperature.\nThe cause ' +
+              'may already have disappeared. Cleared\nby clicking this box or t' +
+              'he test command "Reset smoke detector".'
+            Caption = ' ? '
+            Color = 6579300
+            ParentColor = False
+            ParentShowHint = False
+            ShowHint = True
+          end
+          object VSCheckbox11: TVSCheckbox
+            Left = 9
+            Top = 38
+            Width = 169
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            ParameterNr = 9
+            CommType = ctRead
+            ParamMaskStr = '0080'
+            SilentColor = 6579300
+            ActiveColor = 6382043
+            PassiveColor = 6579300
+            Caption = 'Smoke alarm'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+          end
+          object VSCheckbox12: TVSCheckbox
+            Left = 9
+            Top = 56
+            Width = 169
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            ParameterNr = 9
+            CommType = ctRead
+            ParamMaskStr = '0040'
+            SilentColor = 6579300
+            ActiveColor = 1880762
+            PassiveColor = 6579300
+            Caption = 'Service warning'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 1
+          end
+          object VSCheckbox13: TVSCheckbox
+            Left = 9
+            Top = 74
+            Width = 169
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            ParameterNr = 9
+            CommType = ctRead
+            ParamMaskStr = '0020'
+            SilentColor = 6579300
+            ActiveColor = 6382043
+            PassiveColor = 6579300
+            Caption = 'Loop error'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+          end
+          object VSCheckbox18: TVSCheckbox
+            Left = 9
+            Top = 20
+            Width = 169
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            ParameterNr = 32
+            CommType = ctRead
+            ParamMaskStr = '1000'
+            SilentColor = 6579300
+            ActiveColor = 3911571
+            PassiveColor = 6579300
+            Caption = 'Normal run'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 3
+          end
+          object VSCheckbox19: TVSCheckbox
+            Left = 9
+            Top = 92
+            Width = 145
+            Height = 17
+            SioxBus = SioxBus1
+            ParameterNr = 32
+            ParamMaskStr = '0004'
+            SilentColor = 6579300
+            ActiveColor = 1880762
+            PassiveColor = 6579300
+            Caption = 'Previous error'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+          end
+        end
+      end
+      object GroupBox2: TGroupBox
+        Left = 8
+        Top = 165
+        Width = 371
+        Height = 290
+        Caption = 'DAMPER OPERATION'
+        Color = 6381921
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 3
+        object GroupBox7: TGroupBox
+          Left = 9
+          Top = 16
+          Width = 172
+          Height = 108
+          Caption = 'Channel 1'
+          Color = 6776679
+          ParentColor = False
+          TabOrder = 0
+          object VSCheckbox1: TVSCheckbox
+            Left = 10
+            Top = 19
+            Width = 153
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            StationAddress = 2
+            ParameterNr = 9
+            CommType = ctRead
+            ParamMaskStr = '0001'
+            SilentColor = 6776679
+            ActiveColor = 6776679
+            PassiveColor = 6776679
+            ActiveCaption = 'DAMPER CLOSED'
+            PassiveCaption = 'Damper closed'
+            Caption = 'Damper closed'
+            Ctl3D = False
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida Sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentCtl3D = False
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+          end
+          object VSCheckbox2: TVSCheckbox
+            Left = 10
+            Top = 37
+            Width = 153
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            StationAddress = 2
+            ParameterNr = 9
+            CommType = ctRead
+            ParamMaskStr = '0002'
+            SilentColor = 6776679
+            ActiveColor = 6776679
+            PassiveColor = 6776679
+            ActiveCaption = 'DAMPER OPEN'
+            PassiveCaption = 'Damper open'
+            Caption = 'Damper open'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida Sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 1
+          end
+          object VSCheckbox3: TVSCheckbox
+            Left = 10
+            Top = 55
+            Width = 155
+            Height = 16
+            Cursor = crNo
+            SioxBus = SioxBus1
+            StationAddress = 2
+            ParameterNr = 40
+            CommType = ctRead
+            ParamMaskStr = '0001'
+            SilentColor = 6776679
+            ActiveColor = 6776679
+            PassiveColor = 6776679
+            ActiveCaption = 'DAMPER IS CLOSING'
+            PassiveCaption = 'Damper is closing'
+            Caption = 'Damper is closing'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida Sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+          end
+          object VSCheckbox4: TVSCheckbox
+            Left = 10
+            Top = 73
+            Width = 161
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            StationAddress = 2
+            ParameterNr = 40
+            CommType = ctRead
+            ParamMaskStr = '0002'
+            SilentColor = 6776679
+            ActiveColor = 6776679
+            PassiveColor = 6776679
+            ActiveCaption = 'DAMPER IS OPENING'
+            PassiveCaption = 'Damper is opening'
+            Caption = 'Damper is opening'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida Sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 3
+          end
+        end
+        object GroupBox8: TGroupBox
+          Left = 186
+          Top = 16
+          Width = 177
+          Height = 108
+          Caption = 'Channel 2'
+          Color = 6776679
+          ParentColor = False
+          TabOrder = 1
+          object Label7: TLabel
+            Left = 153
+            Top = 0
+            Width = 16
+            Height = 18
+            Cursor = crHelp
+            Hint = 'Channel 2 is missing in SX:UNO (SC2-1)'
+            Caption = ' ? '
+            Color = 6776679
+            ParentColor = False
+            ParentShowHint = False
+            ShowHint = True
+          end
+          object VSCheckbox7: TVSCheckbox
+            Left = 10
+            Top = 19
+            Width = 161
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            StationAddress = 2
+            ParameterNr = 9
+            CommType = ctRead
+            ParamMaskStr = '0004'
+            SilentColor = 6776679
+            ActiveColor = 6776679
+            PassiveColor = 6776679
+            ActiveCaption = 'DAMPER CLOSED'
+            PassiveCaption = 'Damper closed'
+            Caption = 'Damper closed'
+            Ctl3D = False
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida Sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentCtl3D = False
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+          end
+          object VSCheckbox9: TVSCheckbox
+            Left = 10
+            Top = 37
+            Width = 161
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            StationAddress = 2
+            ParameterNr = 9
+            CommType = ctRead
+            ParamMaskStr = '0008'
+            SilentColor = 6776679
+            ActiveColor = 6776679
+            PassiveColor = 6776679
+            ActiveCaption = 'DAMPER OPEN'
+            PassiveCaption = 'Damper open'
+            Caption = 'Damper open'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida Sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 1
+          end
+          object VSCheckbox14: TVSCheckbox
+            Left = 10
+            Top = 55
+            Width = 168
+            Height = 16
+            Cursor = crNo
+            SioxBus = SioxBus1
+            StationAddress = 2
+            ParameterNr = 40
+            CommType = ctRead
+            ParamMaskStr = '0008'
+            SilentColor = 6776679
+            ActiveColor = 6776679
+            PassiveColor = 6776679
+            ActiveCaption = 'DAMPER IS CLOSING'
+            PassiveCaption = 'Damper is closing'
+            Caption = 'Damper is closing'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida Sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+          end
+          object VSCheckbox15: TVSCheckbox
+            Left = 10
+            Top = 73
+            Width = 169
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            StationAddress = 2
+            ParameterNr = 40
+            CommType = ctRead
+            ParamMaskStr = '0010'
+            SilentColor = 6776679
+            ActiveColor = 6776679
+            PassiveColor = 6776679
+            ActiveCaption = 'DAMPER IS OPENING'
+            PassiveCaption = 'Damper is opening'
+            Caption = 'Damper is opening'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida Sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 3
+          end
+        end
+        object GroupBox12: TGroupBox
+          Left = 9
+          Top = 202
+          Width = 353
+          Height = 46
+          Caption = 'SHORT CIRCUIT PROTECTION - STATUS'
+          Color = 6776679
+          ParentColor = False
+          TabOrder = 2
+          object Label8: TLabel
+            Left = 332
+            Top = 0
+            Width = 16
+            Height = 18
+            Cursor = crHelp
+            Hint = 
+              'This function protects against short-circuited motor outputs.\nP' +
+              'arallel connected motors generate temporary, high start\ncurrent' +
+              's that may trigger the protection. Without the\nprotection, shor' +
+              't-circuited cables could damage the module.\nTo change settings,' +
+              ' see Setup tab.'
+            Caption = ' ? '
+            Color = 6776679
+            ParentColor = False
+            ParentShowHint = False
+            ShowHint = True
+          end
+          object VSCheckbox16: TVSCheckbox
+            Left = 8
+            Top = 19
+            Width = 169
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            ParameterNr = 8
+            CommType = ctRead
+            ParamMaskStr = '0100'
+            SilentColor = 6776679
+            ActiveColor = 6382043
+            PassiveColor = 6776679
+            ActiveCaption = 'Motor 1, Over current!'
+            PassiveCaption = 'Motor 1 - OK'
+            Caption = 'Motor 1 - OK'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida Sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+          end
+          object VSCheckbox17: TVSCheckbox
+            Left = 182
+            Top = 19
+            Width = 169
+            Height = 17
+            Cursor = crNo
+            SioxBus = SioxBus1
+            ParameterNr = 8
+            CommType = ctRead
+            ParamMaskStr = '0200'
+            SilentColor = 6776679
+            ActiveColor = 6382043
+            PassiveColor = 6776679
+            ActiveCaption = 'Motor 2, Over current'
+            PassiveCaption = 'Motor 2 - OK'
+            Caption = 'Motor 2 - OK'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida Sans'
+            Font.Style = [fsBold]
+            ParentColor = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 1
+          end
+        end
+        object GroupBox5: TGroupBox
+          Left = 9
+          Top = 144
+          Width = 353
+          Height = 44
+          Caption = 'REGULATABLE DAMPER POSITIONS'
+          Color = 6776679
+          ParentColor = False
+          TabOrder = 3
+          object Label5: TLabel
+            Left = 332
+            Top = 0
+            Width = 16
+            Height = 18
+            Cursor = crHelp
+            Hint = 'Some dampers can control their opening angle.'
+            Caption = ' ? '
+            Color = 6776679
+            ParentColor = False
+            ParentShowHint = False
+            ShowHint = True
+          end
+          object Label6: TLabel
+            Left = 9
+            Top = 20
+            Width = 72
+            Height = 18
+            Caption = 'Channel 1'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Arial Black'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label13: TLabel
+            Left = 122
+            Top = 20
+            Width = 13
+            Height = 18
+            Caption = '%'
+            Color = 6776679
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Arial Black'
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+          end
+          object Label14: TLabel
+            Left = 185
+            Top = 20
+            Width = 72
+            Height = 18
+            Caption = 'Channel 2'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Arial Black'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label15: TLabel
+            Left = 298
+            Top = 20
+            Width = 13
+            Height = 18
+            Caption = '%'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Arial Black'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object VSEdit3: TVSEdit
+            Left = 88
+            Top = 18
+            Width = 34
+            Height = 24
+            Cursor = crIBeam
+            SioxBus = SioxBus1
+            ParameterNr = 6
+            ParamMaskStr = 'FFFF'
+            SilentColor = 6579455
+            MaxColor = clWindow
+            MinColor = clWindow
+            NumericType = ntDecimal
+            Scale = 0.024410000070929530
+            Color = 4737096
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Arial Black'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            RangeHigh = {D268FD663C9EC9FF7E40}
+            RangeLow = {D268FD663C9EC9FF7EC0}
+          end
+          object VSEdit4: TVSEdit
+            Left = 264
+            Top = 18
+            Width = 34
+            Height = 24
+            Cursor = crIBeam
+            SioxBus = SioxBus1
+            ParameterNr = 7
+            ParamMaskStr = 'FFFF'
+            SilentColor = 6579455
+            MaxColor = clWindow
+            MinColor = clWindow
+            NumericType = ntDecimal
+            Scale = 0.024410000070929530
+            Color = 4737096
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Arial Black'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 1
+            RangeHigh = {D268FD663C9EC9FF7E40}
+            RangeLow = {D268FD663C9EC9FF7EC0}
+          end
+        end
+      end
+      object GroupBox1: TGroupBox
+        Left = 386
+        Top = 165
+        Width = 186
+        Height = 49
+        Caption = 'NTC TEMPERATURE'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 4
+        object Label4: TLabel
+          Left = 53
+          Top = 23
+          Width = 15
+          Height = 18
+          Caption = '°C'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label63: TLabel
+          Left = 161
+          Top = 19
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'Shows the temperature of the NTC-sensor\n(terminal 6-7). Fire is' +
+            ' set if the value\nexceeds the limit shown in the Setup tab.'
+          Caption = ' ? '
+          Color = 6579300
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object VSEdit1: TVSEdit
+          Left = 12
+          Top = 21
+          Width = 41
+          Height = 24
+          Cursor = crNo
+          SioxBus = SioxBus1
+          ParameterNr = 56
+          CommType = ctRead
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntSignedDecimal
+          Scale = 0.100000001490116100
+          Decimals = 1
+          Color = 6579300
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+      end
+      object VSText2: TVSText
+        Left = 386
+        Top = 237
+        Width = 186
+        Height = 18
+        SioxBus = SioxBus1
+        SilentColor = clRed
+        Caption = 'Double click to retrieve info'
+        Color = 8947848
+        Font.Color = 14540253
+        Font.Height = -11
+        Font.Name = 'Lucida sans'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 5
+        ParameterNr = 256
+        TextType = mtMemText
+        CommType = ctRead
+      end
+      object VSText5: TVSText
+        Left = 386
+        Top = 333
+        Width = 186
+        Height = 18
+        SioxBus = SioxBus1
+        SilentColor = clRed
+        Caption = 'Dubbelklicka här för att hämta'
+        Color = 8947848
+        Font.Color = 14540253
+        Font.Height = -11
+        Font.Name = 'Lucida sans'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 6
+        ParameterNr = 288
+        TextType = mtMemText
+        CommType = ctRead
+        object VSText7: TVSText
+          Left = 0
+          Top = 0
+          Width = 186
+          Height = 18
+          SioxBus = SioxBus1
+          SilentColor = clRed
+          Caption = 'Double click to retrieve info'
+          Color = 8947848
+          Font.Color = 14540253
+          Font.Height = -11
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          ParameterNr = 288
+          TextType = mtMemText
+          CommType = ctRead
+        end
+      end
+      object VSText6: TVSText
+        Left = 386
+        Top = 285
+        Width = 186
+        Height = 18
+        SioxBus = SioxBus1
+        SilentColor = clRed
+        Caption = 'Dubbelklicka här för att hämta'
+        Color = 8947848
+        Font.Color = 14540253
+        Font.Height = -11
+        Font.Name = 'Lucida sans'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 7
+        ParameterNr = 272
+        TextType = mtMemText
+        CommType = ctRead
+        object VSText4: TVSText
+          Left = 0
+          Top = 0
+          Width = 186
+          Height = 18
+          SioxBus = SioxBus1
+          SilentColor = clRed
+          Caption = 'Double click to show'
+          Color = 8947848
+          Font.Color = 14540253
+          Font.Height = -11
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          ParameterNr = 256
+          TextType = mtMemText
+          CommType = ctRead
+          object VSText8: TVSText
+            Left = 0
+            Top = 0
+            Width = 186
+            Height = 18
+            SioxBus = SioxBus1
+            SilentColor = clRed
+            Caption = 'Double click to retrieve info'
+            Color = 8947848
+            Font.Color = 14540253
+            Font.Height = -11
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            ParameterNr = 272
+            TextType = mtMemText
+            CommType = ctRead
+          end
+        end
+      end
+    end
+    object TTabPage
+      Left = 4
+      Top = 26
+      Caption = 'SETUP'
+      object Image2: TImage
+        Left = 386
+        Top = 394
+        Width = 186
+        Height = 15
+        Picture.Data = {
+          07544269746D6170100F0000424D100F0000000000000A04000028000000BA00
+          00000F0000000100080000000000060B0000120B0000120B0000F5000000F500
+          000000000000FFFFFF00555555003FD1AE00585456004D484A00090305000A04
+          06002A2124003B3235004A41440039363700958F9100595657001F151800241A
+          1D000C05070018111300867F81000F070900140C0E00160E1000221A1C001511
+          1200453D3F00261D1F0030272900050000005B5959006261610084838300585A
+          59008187850073858000747B790038D0AB0037CFAA003AD2AD003DD8B20042D0
+          AD003EC0A00045D0AE0043CBAA003CA58B0044B69A0041AC920046A9910054B1
+          9A0058B39C0063C9B00061C3AB0067C8B000509A880063B8A3006EBCA9005286
+          79004E7F730078BCAB007BBCAC007EC0B000567F75007CADA10080B0A40086B3
+          A8007C9D95007B9B9300576B6600839F9800879B96007E8E8A008797930034CF
+          AA0035D0AB0036D0AB0037D1AC0038D0AC0039CFAB003CD6B1003BD3AF003ACF
+          AB003BD0AC003DD5B1003DD3AF003AC8A6003DD0AD003ED0AD003CC9A70040D1
+          AE003ECBA9003EC9A8003CC4A40040CDAB003FCCAA0043D1AF0049CEAE0042B9
+          9D0041B69A0046BEA10043B69B0049C3A60048C2A50044B79C0044B59A004BC4
+          A80051CEB00045AF960045AE950045A9910053CAAE0059D2B50047A68F0047A5
+          8F004AA69000489F8A00489C8800499A870052AA950063C6AF006AC5AF004C8A
+          7B004C8678004D83760079B9AA0080BDAF0087B6AB007CA79D00516C66007DA4
+          9B00779991005268630088AAA20083A19A0053605D00535C5A007E9792007C93
+          8E00899C9800717675005E6A68006F7574008286860063666600858686004A4A
+          4B0069696A0063636400FEFEFE00FCFCFC00FAFAFA00F8F8F800F6F6F600F4F4
+          F400F3F3F300F0F0F000EEEEEE00EDEDED00EBEBEB00E8E8E800E6E6E600E5E5
+          E500E2E2E200E1E1E100DEDEDE00DDDDDD00DBDBDB00D8D8D800D6D6D600D5D5
+          D500D2D2D200D1D1D100CECECE00CCCCCC00CBCBCB00C9C9C900C6C6C600C4C4
+          C400C3C3C300C0C0C000BEBEBE00BCBCBC00BABABA00B8B8B800B7B7B700B4B4
+          B400B3B3B300B0B0B000AEAEAE00ACACAC00AAAAAA00A9A9A900A6A6A600A4A4
+          A400A2A2A200A0A0A0009F9F9F009C9C9C009A9A9A0098989800979797009494
+          940092929200909090008E8E8E008D8D8D008B8B8B008A8A8A00898989008686
+          8600848484008383830082828200818181007F7F7F007E7E7E007C7C7C007A7A
+          7A0078787800777777007474740072727200717171006E6E6E006D6D6D006B6B
+          6B006A6A6A006969690068686800666666006464640062626200616161006060
+          60005E5E5E005C5C5C005B5B5B00585858005656560052525200464646003E3E
+          3E002D2D2D00141414000F0F0F0009090900FFFFFF0002020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          02020202020202020202020202020202000002ECECEC1F6B6265666A72388502
+          02E0DBDBDBE5EA91D98C8CE40202847971692C656034ECECECEC0202ECD0BBAE
+          A7A5ACBFE3021CBBB5B5DA020202D0B7AAA5A7B0C4E302C9B4B5B5CD02020202
+          D9B6B5B5B8E902020202D5BEB0A7A5AABCDF020202021FCBB5A9A5A8B2C7E802
+          02E8B9B5B5B5B5B5B5B5B5D702EBCBB4A9A5A6ADBDDA0202020202DBB5B5B5CF
+          020202CFB5B5C3020202DEBFAEA6A5ABBAD6020202CFB5B5BDEB0202DCB6B5B5
+          C8EBCDBAADA6A5ADC3E80202000002DFD5D5D564510303030303283CCD0DF300
+          000000000000F2908C375A03030303034D2FD3D3D3DF0202E393010101010101
+          9CDA1C940101C502E6AC010101010101019ACFCE01010195DA0202E89F010101
+          A71F020202E89801010101010199D40202DDA401010101010101A0D802E00101
+          01010101010101C3E9A60101010101010194C102020202C8010101B4020202B4
+          0101A20202C39701010101010101B31C02B4010196E802EBA5010101ACDA0101
+          0101010101A3E30200F402D51C1C1C6352030303030303253905000000000000
+          000000000B7C5755030303034E308F8F8FD30202DC9201010101010101A7E899
+          0101C702AC01010101010101010194DEBC010101A0E702B401010199E2020202
+          02E396010101010101019FEBE9A00101010101010101019AE5E4950101010101
+          010101C7C201010101010101010192DC020202CA010101B7020202B70101A502
+          CE01010101010101010101B602B701019BE802C001010101B0D3010101010101
+          0101B20200F402D51C8E20675403030303030355503F08000000000000000000
+          000A3A49030303034B35D3D38FD30202D50195ADC5D0B7010194D89C0101CBD3
+          0101010195A09C01010101AE02AC010101AFCB01010101CA0202020202DB0193
+          AAC3D0BF930101DDC80101010198A19901010101BAE7950101929696969696CA
+          AC01010194A4A001010101C5020202CA010101B7020202B70101A6ECA3010101
+          019DA09301010193E4B901019BEBDE9601010101B0C90198B1C8D0B201019B02
+          00F402D51C1C1C6151030303030303034F688813000000000000000000008B33
+          4703030326708F8FEED30202DCBAE302E68EAE010192D29C0101CCB7010101A8
+          DEEBE8C092010198E8E79D01010192010101B2020202020202E0B8DC02E8D2B5
+          920101D7AF010101ADE2EBE5BA0101019FDE960101A2E3E3E3E3E3EBA4010193
+          D002EBB3010101C3020202CA010101B7020202B70101A9DB92010196CBEAEBD8
+          9D010101C9BC01019CEBAA0101010101AED5BBE702E3CCAA0101970200F402DF
+          D5D5D55F56595C25500303030324754609191A0F1B0000000000074576275859
+          5374D3D3D3DF02020202CBA8950101010198DD9B0101C9AB010192D702020202
+          A2010192DB02D6950101010101A2E70202020202020202D4AA960101010193DD
+          A3010194DE020202EC9D010198D6980101A4020202020202A401019CEB0202CE
+          010101C3020202CA010101B7020202B70101AACA010101B202020202C7010101
+          BDBC01019FBF010101010101AB0202C7A49301010101A00200F4020202020287
+          8686403D322303030303246C7A7F807D83040000000000068D40418686210202
+          0202020202B901010101010101BAEB990101C7A8010195E202020202AC010101
+          D90202BF0101010193DA0202020202020202C001010101010101B3EC9E010198
+          E802020202A6010196D3980101A4020202020202A401019DEA0202CD010101C3
+          020202CA010101B7020202B70101AAC6010101BE02020202D9010101B9BB0101
+          9493010194960101ACECB101010101010101C50200F402DFD5D51E121111140E
+          89362403030303504A4B244A293B900000000000001B1511110CD3D3D3DF0202
+          DD9201010101019BBF02E8990101C9AB010192D802020202A3010192DB021FAA
+          0101010192BD02020202020202E395010101010199BB0202A1010194DE020202
+          EC9D010198D6980101A3020202020202A401019DEA0202CC010101C3020202CA
+          010101B7020202B70101AAC9010101B202020202C8010101BDBC010101010101
+          BDA20101B0D50101010101019FC8020200F402D58F8F8FEE0000000000223124
+          030303030303030354487B18000000000000000000F08F8F8FD30202CD010192
+          A5C0D7E8D9D5E9990101CCB6010101A9E0ECE9C192010198E702B50101010101
+          0101C8020202020202D5010101A3BED3E7DBD002AB010101AEE3ECE7BB010101
+          9FDE960101A3020202020202A401019DEA0202CC010101C3020202CF010101B9
+          020202B70101A9DA92010196CD1CECDA9D010101C9BC0101010101A5EA9E0101
+          B1C2010193AAC3D9E9D3DA0200F402D58FD8D5EE000000000010435E50030303
+          0303030303545D82110000000000000000F0D3D38FD302028E010193C1D3C3AA
+          01B602990101CBD20101010196A19D01010101AC02C501010101AA92010196DC
+          0202020202D7010192BCD3C6AD93AD02C40101010198A29A01010101B9E79501
+          01A3020202020202A401019DEA0202CC010101C5D3BCBCAE010101A4BCBCCEB9
+          0101A6ECA2010101019EA19401010193E3B90101010194DA029D0101B1C40101
+          97C8D2C1A501C30200F402D58F8F8FEE000000000000163E2A55030303030303
+          03034C6D441700000000000000F08F8F8FD30202E39601010101010101C10299
+          0101C702AA01010101010101010193DCD393010101B2ECB6010101A2E9020202
+          02E89B01010101010101B802E89F01010101010101010199E4E4950101A30202
+          02020202A401019DEA0202CC010101C7B2010101010101010101AABA0101A502
+          CC01010101010101010101B502B701010101BB021C9D0101AEDC010101010101
+          0101CE0200F402DFD3D4D3EF0000000000F11DCC422D55030303030303035B2B
+          8AD30AF20000000000EDD3D3D3DF020202C492010101010101CBEB940101C502
+          E5AA0101010101010199CBE194010101A8EB021CA5010101B0EC02020202CE96
+          010101010101C20202DCA3010101010101019ED602E00101019F020202020202
+          A0010199EA0202CA010101C5B2010101010101010101AAB70101A20202C29501
+          010101010101B11C02B4010101A0EA021C990101A802BE01010101010101D902
+          00F40202020202D7D7D7D68ED6D6E40202027E77726E2E6F737881020202E1D7
+          D7D7D7D7D7D30202020202020202D6B6A5A0A7B4C7E9EBBBB5B5DA020202CEB4
+          A7A0A3AEC2E202D9B4B5B5B7E3020202E0B7B5B5BBEB0202020202DBB8A6A0A5
+          B2C5E7020202EAC8B2A5A0A4AFC5E70202E8B9B5B5C2020202020202C1B2B2BC
+          EB0202DDB3B2B2DACEB5B5B5B5B5B5B5B5B5C8D3B5B5C3020202DCBDACA2A0A9
+          B8D3020202CFB5B5B6DA0202ECBFB5B5C70202D1B2A3A0A8B7CBEB0200F40202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          02020202020202020202020202020202020202020202020200F40000}
+      end
+      object GroupBox21: TGroupBox
+        Left = 8
+        Top = 100
+        Width = 175
+        Height = 40
+        Caption = 'DAMPER OPENING'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        object Label65: TLabel
+          Left = 159
+          Top = 0
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'Dampers with single end switch\nshow Open already at 5° open.\nT' +
+            'his option allows such dampers\nto open fully during test.'
+          Caption = ' ? '
+          Color = 6579300
+          Font.Color = 4051374
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object VSCheckbox21: TVSCheckbox
+          Left = 8
+          Top = 19
+          Width = 170
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 11
+          MemoryType = mtEEprom
+          ParamMaskStr = '4000'
+          SilentColor = 6579300
+          ActiveColor = clBtnFace
+          PassiveColor = clBtnFace
+          Caption = 'Always full opening'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+        end
+      end
+      object GroupBox22: TGroupBox
+        Left = 377
+        Top = 165
+        Width = 196
+        Height = 77
+        Caption = 'NTC ALARM LEVEL'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 1
+        object Label9: TLabel
+          Left = 172
+          Top = 21
+          Width = 15
+          Height = 15
+          Caption = '°C'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label10: TLabel
+          Left = 177
+          Top = 0
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'When a non-zero level other than 0, typically 72°C,\nis set here' +
+            ', a module with NTC sensor causes\nan alarm at over temperature ' +
+            'or failing connection.'
+          Caption = ' ? '
+          Color = 6579300
+          Font.Color = 4051374
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label16: TLabel
+          Left = 14
+          Top = 53
+          Width = 109
+          Height = 15
+          Caption = 'Current value'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label23: TLabel
+          Left = 172
+          Top = 53
+          Width = 15
+          Height = 15
+          Caption = '°C'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label24: TLabel
+          Left = 14
+          Top = 21
+          Width = 101
+          Height = 15
+          Caption = 'Alarm level'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object VSEdit6: TVSEdit
+          Left = 121
+          Top = 17
+          Width = 47
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 15
+          MemoryType = mtEEprom
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntSignedDecimal
+          Scale = 0.100000001490116100
+          Decimals = 1
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit5: TVSEdit
+          Left = 121
+          Top = 49
+          Width = 47
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 56
+          CommType = ctRead
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntSignedDecimal
+          Scale = 0.100000001490116100
+          Decimals = 1
+          Color = 6579300
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+      end
+      object GroupBox23: TGroupBox
+        Left = 8
+        Top = 54
+        Width = 363
+        Height = 40
+        Caption = 'SHORT CIRCUIT PROTECTION'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 2
+        object Label11: TLabel
+          Left = 345
+          Top = 0
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'This function protects against shorted motor wires.\nWithout pro' +
+            'tection, the outputs may be damaged.\nUse it only to allow start' +
+            'ing surges due to parallel\nconnected motors.'
+          Caption = ' ? '
+          Color = 6579300
+          Font.Color = 4051374
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object VSCheckbox22: TVSCheckbox
+          Left = 8
+          Top = 19
+          Width = 233
+          Height = 17
+          SioxBus = SioxBus1
+          MemoryType = mtEEprom
+          ParamMaskStr = '0008'
+          SilentColor = 6579300
+          ActiveColor = clBtnFace
+          PassiveColor = clBtnFace
+          ActiveCaption = 'Protection is off'
+          Caption = 'Turn protection off'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+        end
+      end
+      object GroupBox24: TGroupBox
+        Left = 189
+        Top = 100
+        Width = 182
+        Height = 40
+        Caption = 'ALARM RELAY'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 3
+        object Label66: TLabel
+          Left = 164
+          Top = 0
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'When checked, the relay will open at\nall times when dampers are' +
+            ' closed\n(e.g. for fan control).'
+          Caption = ' ? '
+          Color = 6579300
+          Font.Color = 4051374
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object VSCheckbox23: TVSCheckbox
+          Left = 8
+          Top = 20
+          Width = 162
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 11
+          MemoryType = mtEEprom
+          ParamMaskStr = '8000'
+          SilentColor = 6579300
+          ActiveColor = clBtnFace
+          PassiveColor = clBtnFace
+          Caption = 'Alternative function'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+        end
+      end
+      object GroupBox25: TGroupBox
+        Left = 8
+        Top = 8
+        Width = 363
+        Height = 40
+        Caption = 'CHANNELS WITHOUT FIRE DAMPER CONTROL'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 4
+        object Label12: TLabel
+          Left = 345
+          Top = 0
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'The fire damper function on either channel\nmay be disabled and ' +
+            'the corresponding\nI/O used for alarms or other functions'
+          Caption = ' ? '
+          Color = 6579300
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object VSCheckbox24: TVSCheckbox
+          Left = 8
+          Top = 19
+          Width = 178
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 11
+          MemoryType = mtEEprom
+          ParamMaskStr = '1000'
+          SilentColor = 6579300
+          ActiveColor = clBtnFace
+          PassiveColor = clBtnFace
+          ActiveCaption = 'Channel 1 turned off'
+          Caption = 'Turn off channel 1'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+        end
+        object VSCheckbox25: TVSCheckbox
+          Left = 192
+          Top = 19
+          Width = 162
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 11
+          MemoryType = mtEEprom
+          ParamMaskStr = '2000'
+          SilentColor = 6579300
+          ActiveColor = clBtnFace
+          PassiveColor = clBtnFace
+          ActiveCaption = 'Channel 2 turned off'
+          Caption = 'Turn off channel 2'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+        end
+      end
+      object GroupBox26: TGroupBox
+        Left = 8
+        Top = 194
+        Width = 363
+        Height = 116
+        Caption = 'FUNCTION TEST SETTINGS'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 5
+        object Label17: TLabel
+          Left = 14
+          Top = 68
+          Width = 281
+          Height = 15
+          Caption = 'Function test interval (h) (0=off)'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label18: TLabel
+          Left = 14
+          Top = 20
+          Width = 285
+          Height = 15
+          Caption = 'Maximum allowed time for closing (s)'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label19: TLabel
+          Left = 14
+          Top = 44
+          Width = 285
+          Height = 15
+          Caption = 'Maximum allowed time for opening (s)'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label20: TLabel
+          Left = 14
+          Top = 92
+          Width = 276
+          Height = 15
+          Caption = 'Remaining time to function test (h)'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object VSEdit7: TVSEdit
+          Left = 303
+          Top = 16
+          Width = 52
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 36
+          MemoryType = mtEEprom
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.062500000000000000
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit8: TVSEdit
+          Left = 303
+          Top = 64
+          Width = 52
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 35
+          MemoryType = mtEEprom
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 1.000000000000000000
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit9: TVSEdit
+          Left = 303
+          Top = 40
+          Width = 52
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 42
+          MemoryType = mtEEprom
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.062500000000000000
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit31: TVSEdit
+          Left = 303
+          Top = 88
+          Width = 52
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 41
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 1.000000000000000000
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+      end
+      object GroupBox27: TGroupBox
+        Left = 377
+        Top = 8
+        Width = 196
+        Height = 151
+        Caption = 'SMOKE DETECTORS'
+        Color = 6579300
+        Ctl3D = False
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 6
+        object GroupBox28: TGroupBox
+          Left = 8
+          Top = 18
+          Width = 186
+          Height = 130
+          Caption = '- Smoke loop setup'
+          Color = 6579300
+          Ctl3D = False
+          ParentColor = False
+          ParentCtl3D = False
+          TabOrder = 0
+          object Label22: TLabel
+            Left = 8
+            Top = 26
+            Width = 71
+            Height = 15
+            Caption = 'Loop error'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label27: TLabel
+            Left = 8
+            Top = 50
+            Width = 48
+            Height = 15
+            Caption = 'Service'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label51: TLabel
+            Left = 8
+            Top = 74
+            Width = 25
+            Height = 15
+            Caption = 'Fire'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label72: TLabel
+            Left = 106
+            Top = 26
+            Width = 10
+            Height = 15
+            Caption = '<'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label73: TLabel
+            Left = 106
+            Top = 50
+            Width = 10
+            Height = 15
+            Caption = '>'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label74: TLabel
+            Left = 106
+            Top = 74
+            Width = 10
+            Height = 15
+            Caption = '>'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label75: TLabel
+            Left = 8
+            Top = 106
+            Width = 93
+            Height = 15
+            Caption = 'Current value'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label76: TLabel
+            Left = 156
+            Top = 26
+            Width = 23
+            Height = 15
+            Caption = 'mA'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label77: TLabel
+            Left = 156
+            Top = 50
+            Width = 23
+            Height = 15
+            Caption = 'mA'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label78: TLabel
+            Left = 156
+            Top = 74
+            Width = 23
+            Height = 15
+            Caption = 'mA'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label79: TLabel
+            Left = 156
+            Top = 106
+            Width = 23
+            Height = 15
+            Caption = 'mA'
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Lucida sans'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label80: TLabel
+            Left = 169
+            Top = 0
+            Width = 16
+            Height = 18
+            Cursor = crHelp
+            Hint = 
+              'These levels control when smoke loop warnings are issued.\nA zer' +
+              'o level disables the corresponding alarm.'
+            Caption = ' ? '
+            Color = 6579300
+            Font.Color = 4051374
+            Font.Height = -13
+            Font.Name = 'Arial Black'
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+          end
+          object VSEdit32: TVSEdit
+            Left = 121
+            Top = 22
+            Width = 32
+            Height = 24
+            Cursor = crIBeam
+            SioxBus = SioxBus1
+            ParameterNr = 12
+            MemoryType = mtEEprom
+            ParamMaskStr = 'FFFF'
+            SilentColor = 6579455
+            MaxColor = clWindow
+            MinColor = clWindow
+            NumericType = ntUnsigned
+            Scale = 0.009999999776482582
+            Color = 4934475
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Arial black'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            RangeHigh = {FFFF0000000000000000}
+            RangeLow = {00000000000000000000}
+          end
+          object VSEdit33: TVSEdit
+            Left = 121
+            Top = 46
+            Width = 32
+            Height = 24
+            Cursor = crIBeam
+            SioxBus = SioxBus1
+            ParameterNr = 13
+            MemoryType = mtEEprom
+            ParamMaskStr = 'FFFF'
+            SilentColor = 6579455
+            MaxColor = clWindow
+            MinColor = clWindow
+            NumericType = ntUnsigned
+            Scale = 0.009999999776482582
+            Color = 4934475
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Arial black'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 1
+            RangeHigh = {FFFF0000000000000000}
+            RangeLow = {00000000000000000000}
+          end
+          object VSEdit34: TVSEdit
+            Left = 121
+            Top = 70
+            Width = 32
+            Height = 24
+            Cursor = crIBeam
+            SioxBus = SioxBus1
+            ParameterNr = 14
+            MemoryType = mtEEprom
+            ParamMaskStr = 'FFFF'
+            SilentColor = 6579455
+            MaxColor = clWindow
+            MinColor = clWindow
+            NumericType = ntUnsigned
+            Scale = 0.009999999776482582
+            Color = 4934475
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Arial black'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+            RangeHigh = {FFFF0000000000000000}
+            RangeLow = {00000000000000000000}
+          end
+          object VSEdit35: TVSEdit
+            Left = 121
+            Top = 102
+            Width = 32
+            Height = 24
+            Cursor = crIBeam
+            SioxBus = SioxBus1
+            ParameterNr = 57
+            CommType = ctRead
+            ParamMaskStr = 'FFFF'
+            SilentColor = 6579455
+            MaxColor = clWindow
+            MinColor = clWindow
+            NumericType = ntUnsigned
+            Scale = 0.009999999776482582
+            Decimals = 1
+            Color = 6579300
+            Font.Color = 15658734
+            Font.Height = -13
+            Font.Name = 'Arial black'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 3
+            RangeHigh = {FFFF0000000000000000}
+            RangeLow = {00000000000000000000}
+          end
+        end
+      end
+      object GroupBox29: TGroupBox
+        Left = 377
+        Top = 248
+        Width = 196
+        Height = 48
+        Caption = 'WATCHDOG'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 7
+        object Label1: TLabel
+          Left = 177
+          Top = 0
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'The module is set to fire mode when communication\n to the modul' +
+            'e has been missing for the amount of\n time set here. At deliver' +
+            'y, the time is set to\n zero to allow commissioning (0=watchdog ' +
+            'off).\nSet a suitable max access time before normal run.'
+          Caption = ' ? '
+          Color = 6579300
+          Font.Color = 4051374
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label28: TLabel
+          Left = 14
+          Top = 19
+          Width = 135
+          Height = 15
+          Caption = 'Time in secounds'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object VSEdit36: TVSEdit
+          Left = 146
+          Top = 16
+          Width = 40
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 3
+          MemoryType = mtEEprom
+          ParamMaskStr = 'ff00'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntUnsigned
+          Scale = 1.000000000000000000
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          RangeHigh = {FFFF0000000000000000}
+          RangeLow = {00000000000000000000}
+        end
+      end
+      object GroupBox10: TGroupBox
+        Left = 8
+        Top = 316
+        Width = 363
+        Height = 72
+        Caption = 'MODULE ADDRESS CHANGE'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 8
+        object Label29: TLabel
+          Left = 14
+          Top = 48
+          Width = 64
+          Height = 15
+          Caption = 'Address'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label30: TLabel
+          Left = 345
+          Top = 49
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'Don'#39't change the address of the module if\nthere'#39's a risk of an ' +
+            'address collition.\nBoth modules will then be hard to find\nunti' +
+            'l someone of them is disconnected.'
+          Caption = ' ? '
+          Color = 6579300
+          Font.Color = 4051374
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label31: TLabel
+          Left = 105
+          Top = 21
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'Systems with less than 60 modules normally\nonly use Group=0 (=G' +
+            'roup not allowed).'
+          Caption = ' ? '
+          Color = 6579300
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label64: TLabel
+          Left = 345
+          Top = 21
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'This box must be checked for certain\nmodules to handle Group ad' +
+            'dresses'
+          Caption = ' ? '
+          Color = 6579300
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label69: TLabel
+          Left = 14
+          Top = 24
+          Width = 58
+          Height = 15
+          Caption = 'Group'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label26: TLabel
+          Left = 153
+          Top = 50
+          Width = 189
+          Height = 16
+          Caption = 'A change may cause collition'
+          Font.Color = 6579455
+          Font.Height = -13
+          Font.Name = 'System'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object VSEdit10: TVSEdit
+          Left = 75
+          Top = 44
+          Width = 30
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          MemoryType = mtEEprom
+          ParamMaskStr = '3f00'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 1.000000000000000000
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit11: TVSEdit
+          Left = 75
+          Top = 20
+          Width = 30
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 0
+          MemoryType = mtEEprom
+          ParamMaskStr = '003F'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 1.000000000000000000
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSCheckbox27: TVSCheckbox
+          Left = 217
+          Top = 22
+          Width = 126
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 2
+          MemoryType = mtEEprom
+          ParamMaskStr = '0800'
+          SilentColor = 6579300
+          ActiveColor = 6579300
+          PassiveColor = 6579300
+          ActiveCaption = 'Group allowed'
+          PassiveCaption = 'Allow group'
+          Caption = 'Allow group'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+        end
+      end
+      object GroupBox14: TGroupBox
+        Left = 8
+        Top = 395
+        Width = 363
+        Height = 62
+        Caption = 'IDENTITY / NAME / OTHER INFORMATION'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 9
+        object Label33: TLabel
+          Left = 345
+          Top = 0
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'These text fields can be used to enter information about identit' +
+            'y,\nname or something else. 31 characters is the maximum (don'#39't ' +
+            'forget\nto press [ENTER]).These texts is shown in it'#39's own colum' +
+            'n after a\nsearch in SIOX Tools. Note that the string entered in' +
+            ' text field 1 is\nsearchable in SIOX Tools. The module can there' +
+            'for be found among\nother modules by this text.'
+          Caption = ' ? '
+          Color = 6579300
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label67: TLabel
+          Left = 14
+          Top = 19
+          Width = 136
+          Height = 15
+          Caption = 'Local text field 1'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label68: TLabel
+          Left = 14
+          Top = 39
+          Width = 136
+          Height = 15
+          Caption = 'Local text field 2'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object VSText1: TVSText
+          Left = 136
+          Top = 17
+          Width = 219
+          Height = 19
+          SioxBus = SioxBus1
+          SilentColor = clRed
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -12
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          ParameterNr = 272
+          TextType = mtMemText
+        end
+        object VSText3: TVSText
+          Left = 136
+          Top = 37
+          Width = 219
+          Height = 19
+          SioxBus = SioxBus1
+          SilentColor = clRed
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -12
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          ParameterNr = 288
+          TextType = mtMemText
+        end
+      end
+      object GroupBox9: TGroupBox
+        Left = 8
+        Top = 146
+        Width = 363
+        Height = 40
+        Caption = 'AFTER RESET'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 10
+        object Label37: TLabel
+          Left = 343
+          Top = 0
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'Function Test:\nShould Function Test be initiated\nafter a reset' +
+            '/power on?\n\nFire State:\nThe Damper module will start up\ni Fi' +
+            're State (closed dampers).\n'
+          Caption = ' ? '
+          Color = 6579300
+          Font.Color = 4051374
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object VSCheckbox30: TVSCheckbox
+          Left = 8
+          Top = 20
+          Width = 162
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 44
+          MemoryType = mtEEprom
+          ParamMaskStr = '0010'
+          SilentColor = 6579300
+          ActiveColor = clBtnFace
+          PassiveColor = clBtnFace
+          Caption = 'Function Test'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+        end
+        object VSCheckbox31: TVSCheckbox
+          Left = 200
+          Top = 20
+          Width = 154
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 44
+          MemoryType = mtEEprom
+          ParamMaskStr = '0002'
+          SilentColor = 6579300
+          ActiveColor = clBtnFace
+          PassiveColor = clBtnFace
+          Caption = 'Fire State'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+        end
+      end
+    end
+    object TTabPage
+      Left = 4
+      Top = 26
+      Caption = 'ANALOG IN/OUT'
+      object Image5: TImage
+        Left = 386
+        Top = 440
+        Width = 186
+        Height = 15
+        Picture.Data = {
+          07544269746D6170100F0000424D100F0000000000000A04000028000000BA00
+          00000F0000000100080000000000060B0000120B0000120B0000F5000000F500
+          000000000000FFFFFF00555555003FD1AE00585456004D484A00090305000A04
+          06002A2124003B3235004A41440039363700958F9100595657001F151800241A
+          1D000C05070018111300867F81000F070900140C0E00160E1000221A1C001511
+          1200453D3F00261D1F0030272900050000005B5959006261610084838300585A
+          59008187850073858000747B790038D0AB0037CFAA003AD2AD003DD8B20042D0
+          AD003EC0A00045D0AE0043CBAA003CA58B0044B69A0041AC920046A9910054B1
+          9A0058B39C0063C9B00061C3AB0067C8B000509A880063B8A3006EBCA9005286
+          79004E7F730078BCAB007BBCAC007EC0B000567F75007CADA10080B0A40086B3
+          A8007C9D95007B9B9300576B6600839F9800879B96007E8E8A008797930034CF
+          AA0035D0AB0036D0AB0037D1AC0038D0AC0039CFAB003CD6B1003BD3AF003ACF
+          AB003BD0AC003DD5B1003DD3AF003AC8A6003DD0AD003ED0AD003CC9A70040D1
+          AE003ECBA9003EC9A8003CC4A40040CDAB003FCCAA0043D1AF0049CEAE0042B9
+          9D0041B69A0046BEA10043B69B0049C3A60048C2A50044B79C0044B59A004BC4
+          A80051CEB00045AF960045AE950045A9910053CAAE0059D2B50047A68F0047A5
+          8F004AA69000489F8A00489C8800499A870052AA950063C6AF006AC5AF004C8A
+          7B004C8678004D83760079B9AA0080BDAF0087B6AB007CA79D00516C66007DA4
+          9B00779991005268630088AAA20083A19A0053605D00535C5A007E9792007C93
+          8E00899C9800717675005E6A68006F7574008286860063666600858686004A4A
+          4B0069696A0063636400FEFEFE00FCFCFC00FAFAFA00F8F8F800F6F6F600F4F4
+          F400F3F3F300F0F0F000EEEEEE00EDEDED00EBEBEB00E8E8E800E6E6E600E5E5
+          E500E2E2E200E1E1E100DEDEDE00DDDDDD00DBDBDB00D8D8D800D6D6D600D5D5
+          D500D2D2D200D1D1D100CECECE00CCCCCC00CBCBCB00C9C9C900C6C6C600C4C4
+          C400C3C3C300C0C0C000BEBEBE00BCBCBC00BABABA00B8B8B800B7B7B700B4B4
+          B400B3B3B300B0B0B000AEAEAE00ACACAC00AAAAAA00A9A9A900A6A6A600A4A4
+          A400A2A2A200A0A0A0009F9F9F009C9C9C009A9A9A0098989800979797009494
+          940092929200909090008E8E8E008D8D8D008B8B8B008A8A8A00898989008686
+          8600848484008383830082828200818181007F7F7F007E7E7E007C7C7C007A7A
+          7A0078787800777777007474740072727200717171006E6E6E006D6D6D006B6B
+          6B006A6A6A006969690068686800666666006464640062626200616161006060
+          60005E5E5E005C5C5C005B5B5B00585858005656560052525200464646003E3E
+          3E002D2D2D00141414000F0F0F0009090900FFFFFF0002020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          02020202020202020202020202020202000002ECECEC1F6B6265666A72388502
+          02E0DBDBDBE5EA91D98C8CE40202847971692C656034ECECECEC0202ECD0BBAE
+          A7A5ACBFE3021CBBB5B5DA020202D0B7AAA5A7B0C4E302C9B4B5B5CD02020202
+          D9B6B5B5B8E902020202D5BEB0A7A5AABCDF020202021FCBB5A9A5A8B2C7E802
+          02E8B9B5B5B5B5B5B5B5B5D702EBCBB4A9A5A6ADBDDA0202020202DBB5B5B5CF
+          020202CFB5B5C3020202DEBFAEA6A5ABBAD6020202CFB5B5BDEB0202DCB6B5B5
+          C8EBCDBAADA6A5ADC3E80202000002DFD5D5D564510303030303283CCD0DF300
+          000000000000F2908C375A03030303034D2FD3D3D3DF0202E393010101010101
+          9CDA1C940101C502E6AC010101010101019ACFCE01010195DA0202E89F010101
+          A71F020202E89801010101010199D40202DDA401010101010101A0D802E00101
+          01010101010101C3E9A60101010101010194C102020202C8010101B4020202B4
+          0101A20202C39701010101010101B31C02B4010196E802EBA5010101ACDA0101
+          0101010101A3E30200F402D51C1C1C6352030303030303253905000000000000
+          000000000B7C5755030303034E308F8F8FD30202DC9201010101010101A7E899
+          0101C702AC01010101010101010194DEBC010101A0E702B401010199E2020202
+          02E396010101010101019FEBE9A00101010101010101019AE5E4950101010101
+          010101C7C201010101010101010192DC020202CA010101B7020202B70101A502
+          CE01010101010101010101B602B701019BE802C001010101B0D3010101010101
+          0101B20200F402D51C8E20675403030303030355503F08000000000000000000
+          000A3A49030303034B35D3D38FD30202D50195ADC5D0B7010194D89C0101CBD3
+          0101010195A09C01010101AE02AC010101AFCB01010101CA0202020202DB0193
+          AAC3D0BF930101DDC80101010198A19901010101BAE7950101929696969696CA
+          AC01010194A4A001010101C5020202CA010101B7020202B70101A6ECA3010101
+          019DA09301010193E4B901019BEBDE9601010101B0C90198B1C8D0B201019B02
+          00F402D51C1C1C6151030303030303034F688813000000000000000000008B33
+          4703030326708F8FEED30202DCBAE302E68EAE010192D29C0101CCB7010101A8
+          DEEBE8C092010198E8E79D01010192010101B2020202020202E0B8DC02E8D2B5
+          920101D7AF010101ADE2EBE5BA0101019FDE960101A2E3E3E3E3E3EBA4010193
+          D002EBB3010101C3020202CA010101B7020202B70101A9DB92010196CBEAEBD8
+          9D010101C9BC01019CEBAA0101010101AED5BBE702E3CCAA0101970200F402DF
+          D5D5D55F56595C25500303030324754609191A0F1B0000000000074576275859
+          5374D3D3D3DF02020202CBA8950101010198DD9B0101C9AB010192D702020202
+          A2010192DB02D6950101010101A2E70202020202020202D4AA960101010193DD
+          A3010194DE020202EC9D010198D6980101A4020202020202A401019CEB0202CE
+          010101C3020202CA010101B7020202B70101AACA010101B202020202C7010101
+          BDBC01019FBF010101010101AB0202C7A49301010101A00200F4020202020287
+          8686403D322303030303246C7A7F807D83040000000000068D40418686210202
+          0202020202B901010101010101BAEB990101C7A8010195E202020202AC010101
+          D90202BF0101010193DA0202020202020202C001010101010101B3EC9E010198
+          E802020202A6010196D3980101A4020202020202A401019DEA0202CD010101C3
+          020202CA010101B7020202B70101AAC6010101BE02020202D9010101B9BB0101
+          9493010194960101ACECB101010101010101C50200F402DFD5D51E121111140E
+          89362403030303504A4B244A293B900000000000001B1511110CD3D3D3DF0202
+          DD9201010101019BBF02E8990101C9AB010192D802020202A3010192DB021FAA
+          0101010192BD02020202020202E395010101010199BB0202A1010194DE020202
+          EC9D010198D6980101A3020202020202A401019DEA0202CC010101C3020202CA
+          010101B7020202B70101AAC9010101B202020202C8010101BDBC010101010101
+          BDA20101B0D50101010101019FC8020200F402D58F8F8FEE0000000000223124
+          030303030303030354487B18000000000000000000F08F8F8FD30202CD010192
+          A5C0D7E8D9D5E9990101CCB6010101A9E0ECE9C192010198E702B50101010101
+          0101C8020202020202D5010101A3BED3E7DBD002AB010101AEE3ECE7BB010101
+          9FDE960101A3020202020202A401019DEA0202CC010101C3020202CF010101B9
+          020202B70101A9DA92010196CD1CECDA9D010101C9BC0101010101A5EA9E0101
+          B1C2010193AAC3D9E9D3DA0200F402D58FD8D5EE000000000010435E50030303
+          0303030303545D82110000000000000000F0D3D38FD302028E010193C1D3C3AA
+          01B602990101CBD20101010196A19D01010101AC02C501010101AA92010196DC
+          0202020202D7010192BCD3C6AD93AD02C40101010198A29A01010101B9E79501
+          01A3020202020202A401019DEA0202CC010101C5D3BCBCAE010101A4BCBCCEB9
+          0101A6ECA2010101019EA19401010193E3B90101010194DA029D0101B1C40101
+          97C8D2C1A501C30200F402D58F8F8FEE000000000000163E2A55030303030303
+          03034C6D441700000000000000F08F8F8FD30202E39601010101010101C10299
+          0101C702AA01010101010101010193DCD393010101B2ECB6010101A2E9020202
+          02E89B01010101010101B802E89F01010101010101010199E4E4950101A30202
+          02020202A401019DEA0202CC010101C7B2010101010101010101AABA0101A502
+          CC01010101010101010101B502B701010101BB021C9D0101AEDC010101010101
+          0101CE0200F402DFD3D4D3EF0000000000F11DCC422D55030303030303035B2B
+          8AD30AF20000000000EDD3D3D3DF020202C492010101010101CBEB940101C502
+          E5AA0101010101010199CBE194010101A8EB021CA5010101B0EC02020202CE96
+          010101010101C20202DCA3010101010101019ED602E00101019F020202020202
+          A0010199EA0202CA010101C5B2010101010101010101AAB70101A20202C29501
+          010101010101B11C02B4010101A0EA021C990101A802BE01010101010101D902
+          00F40202020202D7D7D7D68ED6D6E40202027E77726E2E6F737881020202E1D7
+          D7D7D7D7D7D30202020202020202D6B6A5A0A7B4C7E9EBBBB5B5DA020202CEB4
+          A7A0A3AEC2E202D9B4B5B5B7E3020202E0B7B5B5BBEB0202020202DBB8A6A0A5
+          B2C5E7020202EAC8B2A5A0A4AFC5E70202E8B9B5B5C2020202020202C1B2B2BC
+          EB0202DDB3B2B2DACEB5B5B5B5B5B5B5B5B5C8D3B5B5C3020202DCBDACA2A0A9
+          B8D3020202CFB5B5B6DA0202ECBFB5B5C70202D1B2A3A0A8B7CBEB0200F40202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          0202020202020202020202020202020202020202020202020202020202020202
+          02020202020202020202020202020202020202020202020200F40000}
+      end
+      object GroupBox33: TGroupBox
+        Left = 8
+        Top = 8
+        Width = 230
+        Height = 180
+        Caption = 'MOTOR OUTPUT - CHANNEL 1'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        object Label92: TLabel
+          Left = 8
+          Top = 152
+          Width = 111
+          Height = 15
+          Caption = 'Damper value'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label119: TLabel
+          Left = 8
+          Top = 48
+          Width = 96
+          Height = 15
+          Caption = 'Start value'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label122: TLabel
+          Left = 8
+          Top = 72
+          Width = 111
+          Height = 15
+          Caption = 'Control value 1'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label124: TLabel
+          Left = 8
+          Top = 96
+          Width = 119
+          Height = 15
+          Caption = 'Control value 3'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label125: TLabel
+          Left = 8
+          Top = 120
+          Width = 119
+          Height = 15
+          Caption = 'Control value 5'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label126: TLabel
+          Left = 113
+          Top = 47
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'In the absence of external control, this saved\nvalue defines th' +
+            'e damper value on terminal 13.'
+          Caption = ' ? '
+          Color = 6579300
+          Font.Color = 4051374
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label127: TLabel
+          Left = 113
+          Top = 69
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'Following values have different meanings depending on regulation' +
+            '\nalternative. 1 and 3 are often min / max for the damper value.'
+          Caption = ' ? '
+          Color = 6579300
+          Font.Color = 4051374
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label48: TLabel
+          Left = 196
+          Top = 18
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 'Some dampers are fully closed below 2 V control value.'
+          Caption = ' ? '
+          Color = 6579300
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label55: TLabel
+          Left = 200
+          Top = 46
+          Width = 13
+          Height = 18
+          Caption = '%'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label56: TLabel
+          Left = 200
+          Top = 70
+          Width = 13
+          Height = 18
+          Caption = '%'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label57: TLabel
+          Left = 200
+          Top = 94
+          Width = 13
+          Height = 18
+          Caption = '%'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label59: TLabel
+          Left = 200
+          Top = 150
+          Width = 13
+          Height = 18
+          Caption = '%'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object VSEdit38: TVSEdit
+          Left = 146
+          Top = 148
+          Width = 50
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 6
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579300
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.024410000070929530
+          Decimals = 1
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit39: TVSEdit
+          Left = 146
+          Top = 44
+          Width = 50
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 6
+          MemoryType = mtEEprom
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.024410000070929530
+          Decimals = 1
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit40: TVSEdit
+          Left = 146
+          Top = 68
+          Width = 50
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 26
+          MemoryType = mtEEprom
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.024410000070929530
+          Decimals = 1
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit56: TVSEdit
+          Left = 146
+          Top = 92
+          Width = 50
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 28
+          MemoryType = mtEEprom
+          ParamMaskStr = 'ffff'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.024410000070929530
+          Decimals = 1
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit57: TVSEdit
+          Left = 146
+          Top = 116
+          Width = 50
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 30
+          MemoryType = mtEEprom
+          ParamMaskStr = 'ffff'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.000244099996052682
+          Decimals = 3
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSCheckbox28: TVSCheckbox
+          Left = 8
+          Top = 19
+          Width = 170
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 4
+          MemoryType = mtEEprom
+          ParamMaskStr = '0040'
+          SilentColor = 6579300
+          ActiveColor = clBtnFace
+          PassiveColor = clBtnFace
+          Caption = 'Control range 2-10V'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+        end
+      end
+      object GroupBox34: TGroupBox
+        Left = 246
+        Top = 8
+        Width = 230
+        Height = 180
+        Caption = 'MOTOR OUTPUT - CHANNEL 2'
+        Color = 6579300
+        Font.Color = 4051374
+        Font.Height = -13
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 1
+        object Label129: TLabel
+          Left = 8
+          Top = 152
+          Width = 119
+          Height = 15
+          Caption = 'Damper value'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label130: TLabel
+          Left = 8
+          Top = 48
+          Width = 96
+          Height = 15
+          Caption = 'Start value'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label131: TLabel
+          Left = 200
+          Top = 46
+          Width = 13
+          Height = 18
+          Caption = '%'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label134: TLabel
+          Left = 8
+          Top = 72
+          Width = 127
+          Height = 15
+          Caption = 'Control value 2'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label135: TLabel
+          Left = 8
+          Top = 96
+          Width = 119
+          Height = 15
+          Caption = 'Control value 4'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label136: TLabel
+          Left = 8
+          Top = 120
+          Width = 127
+          Height = 15
+          Caption = 'Control value 6'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label137: TLabel
+          Left = 113
+          Top = 69
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'Following values have different meanings depending on regulation' +
+            '\nalternative. 2 and 4 are often min / max for the damper value.'
+          Caption = ' ? '
+          Color = 6579300
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label138: TLabel
+          Left = 113
+          Top = 47
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'In the absence of external control, this saved\nvalue defines th' +
+            'e damper value on terminal 23.'
+          Caption = ' ? '
+          Color = 6579300
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label49: TLabel
+          Left = 196
+          Top = 18
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 'Some dampers are fully closed below 2 V control value.'
+          Caption = ' ? '
+          Color = 6579300
+          ParentColor = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label50: TLabel
+          Left = 200
+          Top = 70
+          Width = 13
+          Height = 18
+          Caption = '%'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label53: TLabel
+          Left = 200
+          Top = 94
+          Width = 13
+          Height = 18
+          Caption = '%'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label54: TLabel
+          Left = 200
+          Top = 150
+          Width = 13
+          Height = 18
+          Caption = '%'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object VSEdit58: TVSEdit
+          Left = 146
+          Top = 148
+          Width = 50
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 7
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579300
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.024410000070929530
+          Decimals = 1
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit59: TVSEdit
+          Left = 146
+          Top = 44
+          Width = 50
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 7
+          MemoryType = mtEEprom
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.024410000070929530
+          Decimals = 1
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit60: TVSEdit
+          Left = 146
+          Top = 68
+          Width = 50
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 27
+          MemoryType = mtEEprom
+          ParamMaskStr = 'FFFF'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.024410000070929530
+          Decimals = 1
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit61: TVSEdit
+          Left = 146
+          Top = 92
+          Width = 50
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 29
+          MemoryType = mtEEprom
+          ParamMaskStr = 'ffff'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.024410000070929530
+          Decimals = 1
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSEdit62: TVSEdit
+          Left = 146
+          Top = 116
+          Width = 50
+          Height = 24
+          Cursor = crIBeam
+          SioxBus = SioxBus1
+          ParameterNr = 31
+          MemoryType = mtEEprom
+          ParamMaskStr = 'ffff'
+          SilentColor = 6579455
+          MaxColor = clWindow
+          MinColor = clWindow
+          NumericType = ntDecimal
+          Scale = 0.000244099996052682
+          Decimals = 3
+          Color = 4934475
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          RangeHigh = {D268FD663C9EC9FF7E40}
+          RangeLow = {D268FD663C9EC9FF7EC0}
+        end
+        object VSCheckbox29: TVSCheckbox
+          Left = 8
+          Top = 19
+          Width = 178
+          Height = 17
+          SioxBus = SioxBus1
+          ParameterNr = 5
+          MemoryType = mtEEprom
+          ParamMaskStr = '0040'
+          SilentColor = 6579300
+          ActiveColor = clBtnFace
+          PassiveColor = clBtnFace
+          Caption = 'Control range 2-10V'
+          Font.Color = 15658734
+          Font.Height = -13
+          Font.Name = 'Lucida sans'
+          Font.Style = [fsBold]
+          ParentColor = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+        end
+      end
+      object VSCheckbox26: TVSCheckbox
+        Left = -16
+        Top = 264
+        Width = 409
+        Height = 17
+        SioxBus = SioxBus1
+        ParameterNr = 4
+        CommType = ctRead
+        MemoryType = mtEEprom
+        ParamMaskStr = '0800'
+        SilentColor = 5592405
+        ActiveColor = 5592405
+        PassiveColor = clRed
+        PassiveCaption = 'WARNING, if option 004 press the radio button above'
+        Ctl3D = False
+        ParentColor = True
+        ParentCtl3D = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+      end
+      object VSCheckbox39: TVSCheckbox
+        Left = -16
+        Top = 248
+        Width = 409
+        Height = 17
+        SioxBus = SioxBus1
+        ParameterNr = 4
+        CommType = ctRead
+        MemoryType = mtEEprom
+        ParamMaskStr = '1000'
+        SilentColor = 5592405
+        ActiveColor = 5592405
+        PassiveColor = clRed
+        PassiveCaption = 'WARNING, if option 004 press the radio button above'
+        Ctl3D = False
+        ParentColor = True
+        ParentCtl3D = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+      end
+      object VSRadioGroup1: TVSRadioGroup
+        Left = 8
+        Top = 194
+        Width = 153
+        Height = 49
+        Values.Strings = (
+          '3')
+        SilentColor = 6776679
+        Color = 6579300
+        Ctl3D = False
+        Font.Color = 15658734
+        Font.Height = -13
+        Font.Name = 'Lucida sans'
+        Font.Style = [fsBold]
+        Items.Strings = (
+          'OK if checked!')
+        ParentColor = False
+        ParentCtl3D = False
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 4
+        SioxBus = SioxBus1
+        ParameterNr = 4
+        MemoryType = mtEEprom
+        ParamMaskStr = '7800'
+        object Label34: TLabel
+          Left = 137
+          Top = 0
+          Width = 16
+          Height = 18
+          Cursor = crHelp
+          Hint = 
+            'The NTC-input on this module (8SC2-1:004/8SC2:004)\ncan be hardw' +
+            'are-modified to other alternatives.\nTo verify that the module h' +
+            'as the right\nconfiguration for it'#39's hardware this box should\nb' +
+            'e checked. If it'#39's not, press is!'
+          Caption = ' ? '
+          Color = 6776679
+          Font.Color = 4051374
+          Font.Height = -13
+          Font.Name = 'Arial black'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label35: TLabel
+          Left = 3
+          Top = 0
+          Width = 91
+          Height = 18
+          Caption = 'NTC STATUS'
+          Font.Color = 4051374
+          Font.Height = -13
+          Font.Name = 'Arial black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+      end
+    end
+  end
+  object VSEdit19: TVSEdit
+    Left = 347
+    Top = 2
+    Width = 26
+    Height = 24
+    Cursor = crNo
+    SioxBus = SioxBus1
+    ParameterNr = 0
+    CommType = ctRead
+    MemoryType = mtEEprom
+    ParamMaskStr = '003F'
+    SilentColor = 6579455
+    MaxColor = clWindow
+    MinColor = clWindow
+    NumericType = ntDecimal
+    Scale = 1.000000000000000000
+    Color = 6579300
+    Font.Color = 15658734
+    Font.Height = -13
+    Font.Name = 'Arial Black'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    RangeHigh = {D268FD663C9EC9FF7E40}
+    RangeLow = {D268FD663C9EC9FF7EC0}
+  end
+  object VSEdit50: TVSEdit
+    Left = 347
+    Top = 27
+    Width = 26
+    Height = 24
+    Cursor = crNo
+    SioxBus = SioxBus1
+    CommType = ctRead
+    MemoryType = mtEEprom
+    ParamMaskStr = '3F00'
+    SilentColor = 6579455
+    MaxColor = clWindow
+    MinColor = clWindow
+    NumericType = ntDecimal
+    Scale = 1.000000000000000000
+    Color = 6579300
+    Font.Color = 15658734
+    Font.Height = -13
+    Font.Name = 'Arial Black'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    RangeHigh = {D268FD663C9EC9FF7E40}
+    RangeLow = {D268FD663C9EC9FF7EC0}
+  end
+  object VSRadioGroup2: TVSRadioGroup
+    Left = 400
+    Top = 12
+    Width = 91
+    Height = 35
+    Values.Strings = (
+      '256')
+    SilentColor = 6579300
+    Color = 6579300
+    Font.Color = 4051374
+    Font.Height = -13
+    Font.Name = 'Arial Black'
+    Font.Style = [fsBold]
+    Items.Strings = (
+      'BLINK')
+    ParentColor = False
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    SioxBus = SioxBus1
+    ParameterNr = 8
+    ParamMaskStr = 'FFFF'
+  end
+  object VSRadioGroup4: TVSRadioGroup
+    Left = 400
+    Top = -11
+    Width = 91
+    Height = 35
+    Values.Strings = (
+      '65535')
+    SilentColor = 6579300
+    Color = 6579300
+    Font.Color = 4051374
+    Font.Height = -13
+    Font.Name = 'Arial black'
+    Font.Style = [fsBold]
+    Items.Strings = (
+      'RESET')
+    ParentColor = False
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+    SioxBus = SioxBus1
+    ParameterNr = 0
+    ParamMaskStr = 'FFFF'
+  end
+  object SioxBus1: TSioxBus
+    CommPort = COM1
+    MainAddress = True
+    InitString = 'AT&F\N0\G1&C1%C0&K3Q0E1S0=0'
+    DialString = 'ATDT'
+    ServerAddress = '192.168.000.234'
+    PortNumber = 1024
+    NetTimeOut = 2000
+  end
+  object OvcController1: TOvcController
+    EntryCommands.TableList = (
+      'Default'
+      True
+      ()
+      'WordStar'
+      False
+      ()
+      'Grid'
+      False
+      ())
+  end
+end
