@@ -1,5 +1,5 @@
 {
-  "name": "dfm2json",
+  "name": "@diginet/dfm2json",
   "version": "1.0.0",
   "description": "",
   "main": "./build/cli.js",
