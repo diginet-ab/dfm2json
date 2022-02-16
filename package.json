@@ -1,13 +1,13 @@
 {
   "name": "@diginet/dfm2json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "./build/cli.js",
   "type": "module",
   "bin": {
     "dfm2json": "./build/cli.js"
   },
-"scripts": {
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
