@@ -7,6 +7,10 @@ import { postdfm } from "postdfm";
 import { Plugin, Hooks } from "@postdfm/plugin";
 import { saveAsObject } from "./json.js";
 import { program } from 'commander'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 type Options = {
   debug: boolean
