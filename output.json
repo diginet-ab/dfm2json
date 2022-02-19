@@ -1,0 +1,555 @@
+{
+  "VSVersion2": {},
+  "RUN": {
+    "OPERATION STATE": {
+      "Stand by": {
+        "type": "BIT",
+        "bit": 0,
+        "bitSize": 1,
+        "parameter": 32
+      },
+      "Function test": {
+        "type": "BIT",
+        "bit": 4,
+        "bitSize": 1,
+        "parameter": 32
+      },
+      "Fire alarm": {
+        "type": "BIT",
+        "bit": 1,
+        "bitSize": 1,
+        "parameter": 32
+      },
+      "Damper error (Ch 1)": {
+        "type": "BIT",
+        "bit": 3,
+        "bitSize": 1,
+        "parameter": 32
+      },
+      "Damper error (Ch 2)": {
+        "type": "BIT",
+        "bit": 5,
+        "bitSize": 1,
+        "parameter": 32
+      },
+      "Alarm relay": {
+        "type": "BIT",
+        "bit": 4,
+        "bitSize": 1,
+        "parameter": 8
+      },
+      "Over-temperature": {
+        "type": "BIT",
+        "bit": 7,
+        "bitSize": 1,
+        "parameter": 32
+      }
+    },
+    "TEST COMMANDS": {
+      "External fire alarm": {
+        "type": "BIT",
+        "bit": 1,
+        "bitSize": 1,
+        "parameter": 44
+      },
+      "Function test": {
+        "type": "BIT",
+        "bit": 4,
+        "bitSize": 1,
+        "parameter": 44
+      },
+      "Reset smoke detector": {
+        "type": "BIT",
+        "bit": 2,
+        "bitSize": 1,
+        "parameter": 44
+      },
+      "Close dampers": {
+        "type": "BIT",
+        "bit": 3,
+        "bitSize": 1,
+        "parameter": 44
+      },
+      "Force opening": {
+        "type": "BIT",
+        "bit": 0,
+        "bitSize": 1,
+        "parameter": 44
+      }
+    },
+    "SMOKE DETECTORS": {
+      "- Operation state": {
+        "Smoke alarm": {
+          "type": "BIT",
+          "bit": 7,
+          "bitSize": 1,
+          "parameter": 9
+        },
+        "Service warning": {
+          "type": "BIT",
+          "bit": 6,
+          "bitSize": 1,
+          "parameter": 9
+        },
+        "Loop error": {
+          "type": "BIT",
+          "bit": 5,
+          "bitSize": 1,
+          "parameter": 9
+        },
+        "Normal run": {
+          "type": "BIT",
+          "bit": 12,
+          "bitSize": 1,
+          "parameter": 32
+        },
+        "Previous error": {
+          "type": "BIT",
+          "bit": 2,
+          "bitSize": 1,
+          "parameter": 32
+        }
+      }
+    },
+    "DAMPER OPERATION": {
+      "Channel 1": {
+        "Damper closed": {
+          "type": "BIT",
+          "bit": 0,
+          "bitSize": 1,
+          "parameter": 9
+        },
+        "Damper open": {
+          "type": "BIT",
+          "bit": 1,
+          "bitSize": 1,
+          "parameter": 9
+        },
+        "Damper is closing": {
+          "type": "BIT",
+          "bit": 0,
+          "bitSize": 1,
+          "parameter": 40
+        },
+        "Damper is opening": {
+          "type": "BIT",
+          "bit": 1,
+          "bitSize": 1,
+          "parameter": 40
+        }
+      },
+      "Channel 2": {
+        "Damper closed": {
+          "type": "BIT",
+          "bit": 2,
+          "bitSize": 1,
+          "parameter": 9
+        },
+        "Damper open": {
+          "type": "BIT",
+          "bit": 3,
+          "bitSize": 1,
+          "parameter": 9
+        },
+        "Damper is closing": {
+          "type": "BIT",
+          "bit": 3,
+          "bitSize": 1,
+          "parameter": 40
+        },
+        "Damper is opening": {
+          "type": "BIT",
+          "bit": 4,
+          "bitSize": 1,
+          "parameter": 40
+        }
+      },
+      "SHORT CIRCUIT PROTECTION - STATUS": {
+        "Motor 1 - OK": {
+          "type": "BIT",
+          "bit": 8,
+          "bitSize": 1,
+          "parameter": 8
+        },
+        "Motor 2 - OK": {
+          "type": "BIT",
+          "bit": 9,
+          "bitSize": 1,
+          "parameter": 8
+        }
+      },
+      "REGULATABLE DAMPER POSITIONS": {
+        "Channel 1 ??": {
+          "type": "WORD",
+          "bit": 0,
+          "bitSize": 16,
+          "parameter": 7,
+          "scale": 0.02441
+        }
+      }
+    },
+    "NTC TEMPERATURE": {
+      "NTC TEMPERATURE ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 56,
+        "scale": 0.1
+      }
+    },
+    "Double click to retrieve info": {
+      "type": "STRING",
+      "parameter": 256
+    },
+    "Dubbelklicka här för att hämta": {
+      "type": "STRING",
+      "Double click to show": {
+        "type": "STRING",
+        "Double click to retrieve info": {
+          "type": "STRING",
+          "parameter": 272
+        },
+        "parameter": 256
+      },
+      "parameter": 272
+    }
+  },
+  "SETUP": {
+    "DAMPER OPENING": {
+      "Always full opening": {
+        "type": "BIT",
+        "bit": 14,
+        "bitSize": 1,
+        "parameter": 11,
+        "memoryType": "mtEEprom"
+      }
+    },
+    "NTC ALARM LEVEL": {
+      "Alarm level ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 15,
+        "memoryType": "mtEEprom",
+        "scale": 0.1
+      },
+      "NTC ALARM LEVEL ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 56,
+        "scale": 0.1
+      }
+    },
+    "SHORT CIRCUIT PROTECTION": {
+      "Turn protection off": {
+        "type": "BIT",
+        "bit": 3,
+        "bitSize": 1,
+        "memoryType": "mtEEprom"
+      }
+    },
+    "ALARM RELAY": {
+      "Alternative function": {
+        "type": "BIT",
+        "bit": 15,
+        "bitSize": 1,
+        "parameter": 11,
+        "memoryType": "mtEEprom"
+      }
+    },
+    "CHANNELS WITHOUT FIRE DAMPER CONTROL": {
+      "Turn off channel 1": {
+        "type": "BIT",
+        "bit": 12,
+        "bitSize": 1,
+        "parameter": 11,
+        "memoryType": "mtEEprom"
+      },
+      "Turn off channel 2": {
+        "type": "BIT",
+        "bit": 13,
+        "bitSize": 1,
+        "parameter": 11,
+        "memoryType": "mtEEprom"
+      }
+    },
+    "FUNCTION TEST SETTINGS": {
+      "Maximum allowed time for closing (s) ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 36,
+        "memoryType": "mtEEprom",
+        "scale": 0.0625
+      },
+      "Function test interval (h) (0=off) ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 35,
+        "memoryType": "mtEEprom",
+        "scale": 10
+      },
+      "Maximum allowed time for opening (s) ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 42,
+        "memoryType": "mtEEprom",
+        "scale": 0.0625
+      },
+      "Remaining time to function test (h) ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 41,
+        "scale": 10
+      }
+    },
+    "SMOKE DETECTORS": {
+      "- Smoke loop setup": {
+        "Loop error ??": {
+          "type": "WORD",
+          "bit": 0,
+          "bitSize": 16,
+          "parameter": 12,
+          "memoryType": "mtEEprom",
+          "scale": 0.01
+        },
+        "Service ??": {
+          "type": "WORD",
+          "bit": 0,
+          "bitSize": 16,
+          "parameter": 13,
+          "memoryType": "mtEEprom",
+          "scale": 0.01
+        },
+        "Fire ??": {
+          "type": "WORD",
+          "bit": 0,
+          "bitSize": 16,
+          "parameter": 14,
+          "memoryType": "mtEEprom",
+          "scale": 0.01
+        },
+        "Current value ??": {
+          "type": "WORD",
+          "bit": 0,
+          "bitSize": 16,
+          "parameter": 57,
+          "scale": 0.01
+        }
+      }
+    },
+    "WATCHDOG": {
+      "WATCHDOG ??": {
+        "type": "WORD",
+        "bit": 8,
+        "bitSize": 8,
+        "parameter": 3,
+        "memoryType": "mtEEprom",
+        "scale": 10
+      }
+    },
+    "MODULE ADDRESS CHANGE": {
+      "MODULE ADDRESS CHANGE ??": {
+        "type": "WORD",
+        "bit": 8,
+        "bitSize": 6,
+        "memoryType": "mtEEprom",
+        "scale": 10
+      },
+      "Group ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 6,
+        "memoryType": "mtEEprom",
+        "scale": 10
+      },
+      "Allow group": {
+        "type": "BIT",
+        "bit": 11,
+        "bitSize": 1,
+        "parameter": 2,
+        "memoryType": "mtEEprom"
+      }
+    },
+    "IDENTITY / NAME / OTHER INFORMATION": {
+      "VSText1": {
+        "type": "STRING",
+        "parameter": 272
+      },
+      "VSText3": {
+        "type": "STRING",
+        "parameter": 288
+      }
+    },
+    "AFTER RESET": {
+      "Function Test": {
+        "type": "BIT",
+        "bit": 4,
+        "bitSize": 1,
+        "parameter": 44,
+        "memoryType": "mtEEprom"
+      },
+      "Fire State": {
+        "type": "BIT",
+        "bit": 1,
+        "bitSize": 1,
+        "parameter": 44,
+        "memoryType": "mtEEprom"
+      }
+    }
+  },
+  "ANALOG IN/OUT": {
+    "MOTOR OUTPUT - CHANNEL 1": {
+      "Damper value ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 6,
+        "scale": 0.02441
+      },
+      "Start value ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 6,
+        "memoryType": "mtEEprom",
+        "scale": 0.02441
+      },
+      "Control value 1 ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 26,
+        "memoryType": "mtEEprom",
+        "scale": 0.02441
+      },
+      "Control value 3 ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 28,
+        "memoryType": "mtEEprom",
+        "scale": 0.02441
+      },
+      "Control value 5 ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 30,
+        "memoryType": "mtEEprom",
+        "scale": 0.000244
+      },
+      "Control range 2-10V": {
+        "type": "BIT",
+        "bit": 6,
+        "bitSize": 1,
+        "parameter": 4,
+        "memoryType": "mtEEprom"
+      }
+    },
+    "MOTOR OUTPUT - CHANNEL 2": {
+      "Damper value ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 7,
+        "scale": 0.02441
+      },
+      "Start value ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 7,
+        "memoryType": "mtEEprom",
+        "scale": 0.02441
+      },
+      "Control value 2 ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 27,
+        "memoryType": "mtEEprom",
+        "scale": 0.02441
+      },
+      "Control value 4 ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 29,
+        "memoryType": "mtEEprom",
+        "scale": 0.02441
+      },
+      "Control value 6 ??": {
+        "type": "WORD",
+        "bit": 0,
+        "bitSize": 16,
+        "parameter": 31,
+        "memoryType": "mtEEprom",
+        "scale": 0.000244
+      },
+      "Control range 2-10V": {
+        "type": "BIT",
+        "bit": 6,
+        "bitSize": 1,
+        "parameter": 5,
+        "memoryType": "mtEEprom"
+      }
+    },
+    "VSCheckbox26": {
+      "type": "BIT",
+      "bit": 11,
+      "bitSize": 1,
+      "parameter": 4,
+      "memoryType": "mtEEprom"
+    },
+    "VSCheckbox39": {
+      "type": "BIT",
+      "bit": 12,
+      "bitSize": 1,
+      "parameter": 4,
+      "memoryType": "mtEEprom"
+    },
+    "VSRadioGroup1": {
+      "enum": {
+        "OK if checked!": 3
+      },
+      "bit": 11,
+      "bitSize": 4,
+      "parameter": 4,
+      "memoryType": "mtEEprom"
+    }
+  },
+  "VSEdit19 ??": {
+    "type": "WORD",
+    "bit": 0,
+    "bitSize": 6,
+    "memoryType": "mtEEprom",
+    "scale": 10
+  },
+  "ADDRESS ??": {
+    "type": "WORD",
+    "bit": 8,
+    "bitSize": 6,
+    "memoryType": "mtEEprom",
+    "scale": 10
+  },
+  "VSRadioGroup2": {
+    "enum": {
+      "BLINK": 256
+    },
+    "bit": 0,
+    "bitSize": 16,
+    "parameter": 8
+  },
+  "VSRadioGroup4": {
+    "enum": {
+      "RESET": 65535
+    },
+    "bit": 0,
+    "bitSize": 16
+  }
+}

@@ -1,13 +1,41 @@
 import { DObject, Property, StringValue, LiteralString } from '@postdfm/ast'
+import { AnyList } from '@postdfm/ast/list/AnyList'
+import { DoubleValue } from '@postdfm/ast/value/doubleValue'
+import { IntegerValue } from '@postdfm/ast/value/integerValue'
+import { VariantValue } from '@postdfm/ast/value/variantValue'
+import { IdentifierValue } from '@postdfm/ast/value/identifierValue'
+import { VariantList } from '@postdfm/ast/list/variantList'
+import { BinaryStringList } from '@postdfm/ast/list/binaryStringList'
 import fsp from 'fs/promises'
+
+type ChildObject = {
+    [key: string]: undefined | string | number | { [key: string]: number } | ChildObject[]
+    type?: string
+    name?: string
+    Caption?: string
+    enum?: { [key: string]: number }
+    children?: ChildObject[]
+}
+
+type SioxParameterObject = {
+    type: string
+    bit: number
+    bitSize: number
+    parameter: number
+}
+
+type SioxObject = {
+    [key: string]: undefined | string | number | SioxObject | SioxParameterObject
+    type?: string
+}
 
 const sioxPropertyName = ["enum", "Caption", "SioxBus", "ParameterNr", "MemoryType", "ParamMaskStr", "Scale", "Offset", "ParamMask"]
 const useSioxPropertyName = ["enum", "caption", "sioxBus", "parameter", "memoryType", "paramMask", "scale", "offset", "paramMask"]
 
-const getPropertyValue = (prop: Property) => {
+export const getPropertyValue = (prop: Property) => {
     let result
     const getReal = (prop: Property) => {
-        const result = parseFloat(parseFloat((prop.value as any).value.integer + '0.' + (prop.value as any).value.fraction).toFixed(6))
+        const result = parseFloat(parseFloat((prop.value as DoubleValue).value.integer + '0.' + (prop.value as DoubleValue).value.fraction).toFixed(6))
         return result
     }
     const getString = (prop: Property) => {
@@ -16,24 +44,25 @@ const getPropertyValue = (prop: Property) => {
             result = prop.value.value.map(v => v.value).join('')
         return result
     }
-    const getStringArray = (prop: Property): string[] => {
+    const getStringArray = (prop: VariantValue): string[] => {
         let result: string[] = []
         if (Array.isArray(prop.value) && prop.value.length > 0 && prop.value[0] instanceof LiteralString)
             result = prop.value.map(v => v.value)
         return result
     }
-    switch ((prop.value as any).astType) {
-        case 'identifier': result = (prop.value as any).value as string; break
-        case 'integer': result = parseInt((prop.value as any).value) as number; break
+    switch ((prop.value as AnyList).astType) {
+        case 'identifier': result = (prop.value as IdentifierValue).value as string; break
+        case 'integer': result = parseInt((prop.value as IntegerValue).value as unknown as string) as number; break
         case 'double': result = getReal(prop) as number; break
-        case 'real': result = getReal(prop) as number; break
+        case 'single': result = getReal(prop) as number; break
         case 'string': result = getString(prop) as string; break
-        case 'variantList': result = (prop.value as any).values.map((p: Property) => getStringArray(p)) as string[]; break
+        case 'variantList': result = (prop.value as VariantList).values.map((p: VariantValue) => getStringArray(p)) as string[][]; break
+        case 'binaryStringList': result = (prop.value as BinaryStringList).values.map(v => v.value).join(''); break
     }
     return result
 }
 
-const findProperty = (node: DObject, name: string) => {
+export const findProperty = (node: DObject, name: string) => {
     let result
     for (const prop of node.properties) {
         if (prop.name === name) {
@@ -44,7 +73,7 @@ const findProperty = (node: DObject, name: string) => {
     return result
 }
 
-const getProperty = (node: DObject, name: string) => {
+export const getProperty = (node: DObject, name: string) => {
     let result
     for (const prop of node.properties) {
         if (prop.name === name) {
@@ -78,7 +107,7 @@ const getMaskBitSize = (mask: number) => {
     return size
 }
 
-const getCaptionFromSomeLabel = (node: DObject, parent: DObject): any => {
+const getCaptionFromSomeLabel = (node: DObject, parent: DObject) => {
     let result: string | undefined
     const x = getProperty(node, 'Left') as number
     const y = getProperty(node, 'Top') as number
@@ -124,11 +153,11 @@ const getCaptionFromSomeLabel = (node: DObject, parent: DObject): any => {
     if (!result)
         result = node.name
     if (result)
-        result +=  ' |?|'
+        result += ' ??'
     return result
 }
 
-const saveChildObject = (obj: any, node: DObject, parent?: DObject) => {
+const saveChildObject = (obj: ChildObject, node: DObject, parent?: DObject) => {
     const isSIOX = node.properties.reduce((prev, val) => {
         return prev = prev || val.name === 'SioxBus'
     }, false)
@@ -140,12 +169,12 @@ const saveChildObject = (obj: any, node: DObject, parent?: DObject) => {
             obj.enum = {}
             const itemStrings = findProperty(node, 'Items.Strings')
             if (itemStrings) {
-                const items = getPropertyValue(itemStrings) as string[]
+                const items = getPropertyValue(itemStrings) as string[][]
                 const valueStrings = findProperty(node, 'Values.Strings')
                 if (valueStrings) {
-                    const values = getPropertyValue(valueStrings) as string[]
+                    const values = getPropertyValue(valueStrings) as string[][]
                     for (const [index, item] of items.entries()) {
-                        obj.enum[item] = parseInt(values[index])
+                        obj.enum[item[0]] = parseInt(values[index][0])
                     }
                 }
             }
@@ -155,7 +184,7 @@ const saveChildObject = (obj: any, node: DObject, parent?: DObject) => {
         }
         for (const prop of node.properties) {
             if (sioxPropertyName.indexOf(prop.name) >= 0) {
-                const val = getPropertyValue(prop)
+                const val = getPropertyValue(prop) as string | number
                 if (val) {
                     obj[prop.name] = val
                     if (prop.name === 'ParamMaskStr') {
@@ -175,7 +204,7 @@ const saveChildObject = (obj: any, node: DObject, parent?: DObject) => {
                 obj.name = node.name
                 //obj.astType = node.astType
                 obj.type = node.type.substring(1)
-                const val = getProperty(node, 'Caption')
+                const val = getProperty(node, 'Caption') as string
                 if (val)
                     obj.Caption = val
                 break;
@@ -203,7 +232,7 @@ const saveChildObject = (obj: any, node: DObject, parent?: DObject) => {
 }
 
 export const saveAsJson = async (ast: DObject, fileName: string) => {
-    const childObj: any = {}
+    const childObj: ChildObject = {}
     saveChildObject(childObj, ast, undefined)
     await fsp.writeFile(fileName, JSON.stringify(childObj, undefined, 2))
 }
@@ -220,21 +249,23 @@ const getTypeFromVsType = (type: string) => {
     return result
 }
 
-const saveObject = (childObj: any, obj: any = {}) => {
+const saveObject = (childObj: ChildObject, obj: SioxObject = {}) => {
     obj = Object.assign(obj, childObj)
     //obj = JSON.parse(JSON.stringify(childObj))
     if (obj['SioxBus'])
         delete obj['SioxBus']
-    const type = getTypeFromVsType(obj['type'])
-    if (type)
-        obj['type'] = type
-    else
-        delete obj['type']
+    if (obj.type) {
+        const type = getTypeFromVsType(obj.type)
+        if (type)
+            obj['type'] = type
+        else
+            delete obj['type']
+    }
     if (childObj.children) {
         delete obj['children']
         let index = 1
         for (const child of childObj.children) {
-            const getName = (child: any) => {
+            const getName = (child: ChildObject) => {
                 let name = child.name
                 if (!name)
                     name = child.type + index.toString()
@@ -248,14 +279,14 @@ const saveObject = (childObj: any, obj: any = {}) => {
             }
             if (child.type !== 'TabbedNotebook') {
                 const name = getName(child)
-                obj[name] = {}
-                saveObject(child, obj[name])
+                obj[name] = {} as SioxObject
+                saveObject(child, obj[name] as SioxObject)
                 index++
-            } else {
+            } else if (child.children) {
                 for (const c of child.children) {
                     const name = getName(c)
                     obj[name] = {}
-                    saveObject(c, obj[name])
+                    saveObject(c, obj[name] as SioxObject)
                     index++
                 }
             }
@@ -265,7 +296,7 @@ const saveObject = (childObj: any, obj: any = {}) => {
     return obj
 }
 
-const renameProperties = (obj: any) => {
+const renameProperties = (obj: SioxObject) => {
     for (const prop in obj) {
         const index = sioxPropertyName.indexOf(prop)
         if (index >= 0 && sioxPropertyName[index] !== useSioxPropertyName[index]) {
@@ -273,12 +304,12 @@ const renameProperties = (obj: any) => {
             delete obj[prop]
         }
         if (typeof obj[prop] === 'object')
-            renameProperties(obj[prop])
+            renameProperties(obj[prop] as SioxObject)
     }
 }
 
 export const saveAsObject = async (ast: DObject, fileName: string) => {
-    const childObj: any = {}
+    const childObj: ChildObject = {}
     saveChildObject(childObj, ast, undefined)
     const obj = saveObject(childObj)
     renameProperties(obj)

@@ -5,8 +5,9 @@ import { postdfm } from "postdfm";
 
 // only if implementing your own plugin
 import { Plugin, Hooks } from "@postdfm/plugin";
-import { saveAsObject } from "./json.js";
+import { findProperty, getPropertyValue, saveAsObject } from "./json.js";
 import { program } from 'commander'
+import windows1252 from 'windows-1252'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 const __filename = fileURLToPath(import.meta.url)
@@ -36,6 +37,11 @@ class SomePlugin extends Plugin {
         //saveAsJson(ast, './out.json')
         saveAsObject(ast, this.fileName)
       }
+      if (ast.type == 'TImage') {
+        const p = findProperty(ast, 'Picture.Data')
+        if (p)
+          getPropertyValue(p)
+      }
     })
     // - "all" hook for everything - excludes "after" hooks
     //hooks.all.tap('c', (ast: DObject) => {
@@ -44,20 +50,23 @@ class SomePlugin extends Plugin {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const convertDfmToJson = async (source: string, dest: string, options: Options) => {
   const fileName = source
 
-  const cisDfm = fs.readFileSync(
+  let dfm = fs.readFileSync(
     fileName,
     //.dfm files tend to be ascii instead of utf8
-    "ascii"
+    { encoding:'ascii'}
   );
+
+  dfm = windows1252.decode(dfm)
 
   const runner = await postdfm({
     plugins: [new SomePlugin(dest)],
   });
 
-  await runner.process(cisDfm, {
+  await runner.process(dfm, {
     //filename used for reporting errors
     from: fileName,
   });
@@ -93,6 +102,7 @@ const main = async () => {
     .option('-d, --debug', 'Debug info')
     .argument('<source>', 'Source file')
     .argument('[target]', 'Target file', './output.json')
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .action(async (source: string, target: string, options: Options, command) => {
       await convertDfmToJson(source.replaceAll('\\', '/'), target.replaceAll('\\', '/'), options)
     })

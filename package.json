@@ -16,6 +16,7 @@
   "dependencies": {
     "@types/node": "^17.0.17",
     "commander": "^9.0.0",
+    "jimp": "^0.16.1",
     "postdfm": "^8.0.3",
     "windows-1252": "^3.0.4"
   },
