@@ -15,6 +15,9 @@ type ChildObject = {
     Caption?: string
     enum?: { [key: string]: number }
     children?: ChildObject[]
+    ParameterNr?: number
+    bit?: number
+    bitSize?: number
 }
 
 type SioxParameterObject = {
@@ -24,9 +27,23 @@ type SioxParameterObject = {
     parameter: number
 }
 
+type SioxObjectChildren = (SioxObject | SioxFolderObject)[]
+
+type SioxFolderObject = {
+    [key: string]: string | SioxObjectChildren | undefined
+    children?: SioxObjectChildren
+}
+
 type SioxObject = {
-    [key: string]: undefined | string | number | SioxObject | SioxParameterObject
-    type?: string
+    [key: string]: undefined | string | number | boolean | { [key: string]: number } | SioxObject | SioxParameterObject
+    type: string
+    name: string
+    displayName: string
+    parameter: number
+    bitSize: number
+    bit?: number
+    setup?: boolean
+    enum?: { [key: string]: number }
 }
 
 const sioxPropertyName = ["enum", "Caption", "SioxBus", "ParameterNr", "MemoryType", "ParamMaskStr", "Scale", "Offset", "ParamMask"]
@@ -111,17 +128,43 @@ const getCaptionFromSomeLabel = (node: DObject, parent: DObject) => {
     let result: string | undefined
     const x = getProperty(node, 'Left') as number
     const y = getProperty(node, 'Top') as number
-    for (const sib of parent.children) {
-        // Check for label to the left
-        if (sib.type === 'TLabel') {
-            const c = getProperty(sib, 'Caption')
-            if (c) {
-                const cx = getProperty(sib, 'Left') as number
-                const cy = getProperty(sib, 'Top') as number
-                const cw = getProperty(sib, 'Width') as number
-                if (cx < x && Math.abs(cy - y) < 5 && (cx + cw) < x) {
-                    result = c as string
-                    break
+    if (!result && node.children) {
+        // Check child labels
+        for (const sib of node.children) {
+            // Check for label(s) above
+            if (sib.type === 'TLabel') {
+                const c = getProperty(sib, 'Caption')
+                if (c) {
+                    const cx = getProperty(sib, 'Left') as number
+                    const cy = getProperty(sib, 'Top') as number
+                    if (cy < y && Math.abs(cx - x) <= 7) {
+                        if (!result)
+                            result = c as string
+                        else
+                            result += ' ' + c as string
+                    }
+                }
+            }
+        }
+    }
+    if (!result && findProperty(node, 'Items.Strings')) {
+        const s = getProperty(node, 'Items.Strings') as string[][]
+        if (s.length && s[0].length)
+            result = s[0][0]
+    }
+    if (!result && parent.children) {
+        for (const sib of parent.children) {
+            // Check for label to the left
+            if (sib.type === 'TLabel') {
+                const c = getProperty(sib, 'Caption')
+                if (c) {
+                    const cx = getProperty(sib, 'Left') as number
+                    const cy = getProperty(sib, 'Top') as number
+                    const cw = getProperty(sib, 'Width') as number
+                    if (cx < x && Math.abs(cy - y) <= 7 && (cx + cw) < x) {
+                        result = c as string
+                        break
+                    }
                 }
             }
         }
@@ -134,7 +177,7 @@ const getCaptionFromSomeLabel = (node: DObject, parent: DObject) => {
                 if (c) {
                     const cx = getProperty(sib, 'Left') as number
                     const cy = getProperty(sib, 'Top') as number
-                    if (cy < y && Math.abs(cx - x) < 5) {
+                    if (cy < y && Math.abs(cx - x) <= 7) {
                         if (!result)
                             result = c as string
                         else
@@ -159,13 +202,13 @@ const getCaptionFromSomeLabel = (node: DObject, parent: DObject) => {
 
 const saveChildObject = (obj: ChildObject, node: DObject, parent?: DObject) => {
     const isSIOX = node.properties.reduce((prev, val) => {
-        return prev = prev || val.name === 'SioxBus'
+        return prev = prev || (val.name === 'SioxBus' && !(node.type === 'TVSVersion'))
     }, false)
     if (isSIOX) {
         obj.name = node.name
         //obj.astType = node.astType
-        obj.type = node.type.substring(1)
-        if (obj.type === 'VSRadioGroup') {
+        obj.type = node.type
+        if (obj.type === 'TVSRadioGroup') {
             obj.enum = {}
             const itemStrings = findProperty(node, 'Items.Strings')
             if (itemStrings) {
@@ -179,9 +222,6 @@ const saveChildObject = (obj: ChildObject, node: DObject, parent?: DObject) => {
                 }
             }
         }
-        if (node.type === 'TVSEdit' && parent) {
-            obj.Caption = getCaptionFromSomeLabel(node, parent)
-        }
         for (const prop of node.properties) {
             if (sioxPropertyName.indexOf(prop.name) >= 0) {
                 const val = getPropertyValue(prop) as string | number
@@ -190,12 +230,19 @@ const saveChildObject = (obj: ChildObject, node: DObject, parent?: DObject) => {
                     if (prop.name === 'ParamMaskStr') {
                         const mask = parseInt('0x' + obj[prop.name])
                         delete obj[prop.name]
-                        obj['bit'] = getMaskBit(mask)
-                        obj['bitSize'] = getMaskBitSize(mask)
+                        obj.bit = getMaskBit(mask)
+                        obj.bitSize = getMaskBitSize(mask)
                     }
                 }
             }
         }
+        if (!obj.Caption && parent) {
+            obj.Caption = getCaptionFromSomeLabel(node, parent)
+            if (obj.Caption.indexOf('TVS') === 0)
+                console.log(`No label found for ${node.name}`)
+        }
+        if (obj.parameter === undefined)
+            obj.parameter = 0
     } else {
         switch (node.type) {
             case 'TTabbedNotebook':
@@ -214,9 +261,17 @@ const saveChildObject = (obj: ChildObject, node: DObject, parent?: DObject) => {
     if (node.children && node.children.length) {
         obj.children = []
         for (const child of node.children) {
-            const objChild = {}
-            obj.children.push(objChild)
-            saveChildObject(objChild, child, node)
+            if (child.type !== 'TTabbedNotebook') {
+                const objChild = {} as ChildObject
+                obj.children.push(objChild)
+                saveChildObject(objChild, child, node)
+            } else {
+                for (const subChild of child.children) {
+                    const objChild = {} as ChildObject
+                    obj.children.push(objChild)
+                    saveChildObject(objChild, subChild, node)
+                }
+            }
         }
     }
     if (obj.children) {
@@ -237,66 +292,75 @@ export const saveAsJson = async (ast: DObject, fileName: string) => {
     await fsp.writeFile(fileName, JSON.stringify(childObj, undefined, 2))
 }
 
-const getTypeFromVsType = (type: string) => {
-    let result
-    if (type) {
-        switch (type) {
-            case 'VSEdit': result = 'WORD'; break
-            case 'VSText': result = 'STRING'; break
-            case 'VSCheckbox': result = 'BIT'; break
-        }
-    }
-    return result
+const isSioxObject = (obj: object | ChildObject): obj is ChildObject => {
+    if (obj)
+        return (obj as ChildObject).SioxBus !== undefined
+    else
+        return false
 }
 
-const saveObject = (childObj: ChildObject, obj: SioxObject = {}) => {
-    obj = Object.assign(obj, childObj)
-    //obj = JSON.parse(JSON.stringify(childObj))
-    if (obj['SioxBus'])
-        delete obj['SioxBus']
-    if (obj.type) {
-        const type = getTypeFromVsType(obj.type)
-        if (type)
-            obj['type'] = type
+let unnamedIndex = 0
+const getName = (child: ChildObject) => {
+    let name = child.name
+    if (!name)
+        name = child.type + (unnamedIndex++).toString()
+    if (child.Caption)
+        name = child.Caption
+    if (name)
+        name = name.replace('&', '')
+    return name as string
+}
+
+const saveObject = (childObj: ChildObject, obj: SioxFolderObject | SioxObject = {}) => {
+    if (isSioxObject(childObj)) {
+        const sioxObj = obj as SioxObject
+        sioxObj.name = getName(childObj)
+        sioxObj.displayName = sioxObj.name
+        if (childObj.ParameterNr)
+            sioxObj.parameter = childObj.ParameterNr
         else
-            delete obj['type']
+            sioxObj.parameter = 0
+        switch (childObj.type) {
+            case 'TVSCheckbox': {
+                sioxObj.type = 'BIT'
+                sioxObj.bit = childObj.bit
+                sioxObj.bitSize = 1
+            }
+                break
+            case 'TVSRadioGroup': {
+                sioxObj.type = 'BIT'
+                sioxObj.bit = childObj.bit
+                sioxObj.bitSize = 1
+            }
+                break
+            case 'TVSEdit': {
+                sioxObj.type = 'WORD'
+                sioxObj.bit = 0
+                sioxObj.bitSize = 16
+            }
+                break
+            case 'TVSText': {
+                sioxObj.type = 'STRING'
+            }
+                break
+            default: console.log(`Unhandled SIOX type ${childObj.type} (${childObj.name})`)
+        }
+        if (childObj.MemoryType)
+            sioxObj.setup = childObj.MemoryType === 'mtEEprom'
+        if (childObj.enum)
+            sioxObj.enum = childObj.enum
     }
     if (childObj.children) {
-        delete obj['children']
-        let index = 1
         for (const child of childObj.children) {
-            const getName = (child: ChildObject) => {
-                let name = child.name
-                if (!name)
-                    name = child.type + index.toString()
-                if (child.Caption) {
-                    name = child.Caption
-                    delete child['Caption']
-                }
-                if (name)
-                    name = name.replace('&', '')
-                return name as string
-            }
-            if (child.type !== 'TabbedNotebook') {
-                const name = getName(child)
-                obj[name] = {} as SioxObject
-                saveObject(child, obj[name] as SioxObject)
-                index++
-            } else if (child.children) {
-                for (const c of child.children) {
-                    const name = getName(c)
-                    obj[name] = {}
-                    saveObject(c, obj[name] as SioxObject)
-                    index++
-                }
-            }
+            const name = getName(child)
+            obj[name] = {} as SioxObject
+            saveObject(child, obj[name] as SioxObject)
         }
     }
-    delete obj['name']
     return obj
 }
 
-const renameProperties = (obj: SioxObject) => {
+const renameProperties = (obj: SioxFolderObject | SioxObject) => {
     for (const prop in obj) {
         const index = sioxPropertyName.indexOf(prop)
         if (index >= 0 && sioxPropertyName[index] !== useSioxPropertyName[index]) {

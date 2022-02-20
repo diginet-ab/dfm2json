@@ -7,7 +7,7 @@ import { postdfm } from "postdfm";
 import { Plugin, Hooks } from "@postdfm/plugin";
 import { findProperty, getPropertyValue, saveAsObject } from "./json.js";
 import { program } from 'commander'
-import windows1252 from 'windows-1252'
+import { decode as decode1252 } from 'windows-1252'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 const __filename = fileURLToPath(import.meta.url)
@@ -57,10 +57,10 @@ export const convertDfmToJson = async (source: string, dest: string, options: Op
   let dfm = fs.readFileSync(
     fileName,
     //.dfm files tend to be ascii instead of utf8
-    { encoding:'ascii'}
+    { encoding:'binary'}
   );
 
-  dfm = windows1252.decode(dfm)
+  dfm = decode1252(dfm)
 
   const runner = await postdfm({
     plugins: [new SomePlugin(dest)],
