@@ -9,13 +9,13 @@ import { Plugin, Hooks } from "@postdfm/plugin";
 import { findProperty, getPropertyValue, saveAsObject } from "./json.js";
 import { program } from 'commander'
 import { decode as decode1252 } from 'windows-1252'
-//import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'url'
 import shellJs from 'shelljs'
-//import { dirname } from 'path'
+import { dirname } from 'path'
 import {packageDirectory} from 'pkg-dir'
 import { testProtoBuf } from "./protobuf.js";
-//const __filename = fileURLToPath(import.meta.url)
-//const __dirname = dirname(__filename)
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 type Options = {
   debug: boolean

@@ -13,7 +13,7 @@ type ChildObject = {
     type?: string
     name?: string
     Caption?: string
-    enum?: { [key: string]: number }
+    enum?: { key: string, value: number }[]
     children?: ChildObject[]
     ParameterNr?: number
     NumericType?: string
@@ -40,7 +40,7 @@ type SioxFolderObject = {
 }
 
 type SioxObject = {
-    [key: string]: undefined | string | number | boolean | { [key: string]: number } | SioxObject | SioxParameterObject
+    [key: string]: undefined | string | number | boolean | { [key: string]: number } | SioxObject | SioxParameterObject | { key: string, value: number }[]
     type: string
     name: string
     displayName: string
@@ -50,7 +50,7 @@ type SioxObject = {
     scale?: number
     offset?: number
     setup?: boolean
-    enum?: { [key: string]: number }
+    enum?: { key: string, value: number }[]
 }
 
 const sioxPropertyName = ["enum", "Caption", "SioxBus", "ParameterNr", "MemoryType", "ParamMaskStr", "Scale", "Offset", "ParamMask", "NumericType"]
@@ -216,7 +216,7 @@ const saveChildObject = (obj: ChildObject, node: DObject, parent?: DObject) => {
         //obj.astType = node.astType
         obj.type = node.type
         if (obj.type === 'TVSRadioGroup') {
-            obj.enum = {}
+            obj.enum = []
             const itemStrings = findProperty(node, 'Items.Strings')
             if (itemStrings) {
                 const items = getPropertyValue(itemStrings) as string[][]
@@ -224,7 +224,7 @@ const saveChildObject = (obj: ChildObject, node: DObject, parent?: DObject) => {
                 if (valueStrings) {
                     const values = getPropertyValue(valueStrings) as string[][]
                     for (const [index, item] of items.entries()) {
-                        obj.enum[item[0]] = parseInt(values[index][0])
+                        obj.enum.push({ key: item[0], value: parseInt(values[index][0]) })
                     }
                 }
             }
