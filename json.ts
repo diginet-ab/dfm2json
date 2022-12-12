@@ -1,5 +1,5 @@
 import { DObject, Property, StringValue, LiteralString } from '@postdfm/ast'
-import { AnyList } from '@postdfm/ast/list/AnyList'
+import { AnyList } from '@postdfm/ast/list/anyList'
 import { DoubleValue } from '@postdfm/ast/value/doubleValue'
 import { IntegerValue } from '@postdfm/ast/value/integerValue'
 import { VariantValue } from '@postdfm/ast/value/variantValue'
@@ -16,15 +16,20 @@ type ChildObject = {
     enum?: { [key: string]: number }
     children?: ChildObject[]
     ParameterNr?: number
+    NumericType?: string
     bit?: number
     bitSize?: number
+    scale?: number
+    offset?: number
 }
 
 type SioxParameterObject = {
     type: string
     bit: number
     bitSize: number
-    parameter: number
+    par: number
+    scale?: number
+    offset?: number
 }
 
 type SioxObjectChildren = (SioxObject | SioxFolderObject)[]
@@ -39,15 +44,17 @@ type SioxObject = {
     type: string
     name: string
     displayName: string
-    parameter: number
-    bitSize: number
+    par: number
+    bitSize?: number
     bit?: number
+    scale?: number
+    offset?: number
     setup?: boolean
     enum?: { [key: string]: number }
 }
 
-const sioxPropertyName = ["enum", "Caption", "SioxBus", "ParameterNr", "MemoryType", "ParamMaskStr", "Scale", "Offset", "ParamMask"]
-const useSioxPropertyName = ["enum", "caption", "sioxBus", "parameter", "memoryType", "paramMask", "scale", "offset", "paramMask"]
+const sioxPropertyName = ["enum", "Caption", "SioxBus", "ParameterNr", "MemoryType", "ParamMaskStr", "Scale", "Offset", "ParamMask", "NumericType"]
+const useSioxPropertyName = ["enum", "caption", "sioxBus", "parameter", "memoryType", "paramMask", "scale", "offset", "paramMask", "numericType"]
 
 export const getPropertyValue = (prop: Property) => {
     let result
@@ -233,6 +240,12 @@ const saveChildObject = (obj: ChildObject, node: DObject, parent?: DObject) => {
                         obj.bit = getMaskBit(mask)
                         obj.bitSize = getMaskBitSize(mask)
                     }
+                    if (prop.name === 'Scale') {
+                        obj.scale = parseFloat(obj[prop.name] as string)
+                    }
+                    if (prop.name === 'Offset') {
+                        obj.offset = parseFloat(obj[prop.name] as string)
+                    }
                 }
             }
         }
@@ -289,7 +302,7 @@ const saveChildObject = (obj: ChildObject, node: DObject, parent?: DObject) => {
 export const saveAsJson = async (ast: DObject, fileName: string) => {
     const childObj: ChildObject = {}
     saveChildObject(childObj, ast, undefined)
-    await fsp.writeFile(fileName, JSON.stringify(childObj, undefined, 2))
+    await fsp.writeFile(fileName, JSON.stringify(childObj))
 }
 
 const isSioxObject = (obj: object | ChildObject): obj is ChildObject => {
@@ -314,29 +327,31 @@ const getName = (child: ChildObject) => {
 const saveObject = (childObj: ChildObject, obj: SioxFolderObject | SioxObject = {}) => {
     if (isSioxObject(childObj)) {
         const sioxObj = obj as SioxObject
-        sioxObj.name = getName(childObj)
-        sioxObj.displayName = sioxObj.name
+        //sioxObj.name = getName(childObj)
+        //sioxObj.displayName = sioxObj.name
         if (childObj.ParameterNr)
-            sioxObj.parameter = childObj.ParameterNr
+            sioxObj.par = childObj.ParameterNr
         else
-            sioxObj.parameter = 0
+            sioxObj.par = 0
         switch (childObj.type) {
             case 'TVSCheckbox': {
                 sioxObj.type = 'BIT'
                 sioxObj.bit = childObj.bit
-                sioxObj.bitSize = 1
+                //sioxObj.bitSize = 1
             }
                 break
             case 'TVSRadioGroup': {
                 sioxObj.type = 'BIT'
                 sioxObj.bit = childObj.bit
-                sioxObj.bitSize = 1
+                //sioxObj.bitSize = 1
             }
                 break
             case 'TVSEdit': {
-                sioxObj.type = 'WORD'
-                sioxObj.bit = 0
-                sioxObj.bitSize = 16
+                sioxObj.type = childObj.NumericType ? ((childObj.NumericType.indexOf("igned") >= 0) ? 'SWORD' : 'WORD') : 'WORD'
+                sioxObj.bit = childObj.bit ? childObj.bit : undefined
+                sioxObj.bitSize = childObj.bitSize ? (childObj.bitSize != 16 ? childObj.bitSize : undefined) : undefined
+                sioxObj.scale = childObj.scale ? childObj.scale : undefined
+                sioxObj.offset = childObj.offset ? childObj.offset : undefined
             }
                 break
             case 'TVSText': {
@@ -372,11 +387,38 @@ const renameProperties = (obj: SioxFolderObject | SioxObject) => {
     }
 }
 
+const convertScaleToMinMax = (obj: SioxFolderObject | SioxObject) => {
+    for (const prop in obj) {
+        if (prop === "scale") {
+            let scale = obj[prop] as number | undefined
+            let offset = obj.offset as number | undefined
+            if (scale === undefined)
+                scale = 1
+            if (offset === undefined)
+                offset = 0
+            let bitSize = obj.bitSize as number | undefined
+            if (bitSize === undefined)
+                bitSize = 16
+            let type = obj.type as string
+            if (type === undefined)
+                type = "WORD"
+            const signed = type.indexOf("S") === 0
+            obj.rawMin = signed ? -Math.pow(2, bitSize) : 0
+            obj.rawMax = signed ? (Math.pow(2, bitSize - 1) - 1) : (Math.pow(2, bitSize) - 1)
+            obj.min = obj.rawMin / (obj.scale as number)
+            obj.max = obj.rawMax / (obj.scale as number)
+        }
+        if (typeof obj[prop] === 'object')
+            convertScaleToMinMax(obj[prop] as SioxObject)
+    }
+}
+
 export const saveAsObject = async (ast: DObject, fileName: string) => {
     const childObj: ChildObject = {}
     saveChildObject(childObj, ast, undefined)
     const obj = saveObject(childObj)
     renameProperties(obj)
-    await fsp.writeFile(fileName, JSON.stringify(obj, undefined, 2))
+    convertScaleToMinMax(obj)
+    await fsp.writeFile(fileName, JSON.stringify(obj))
 }
 

@@ -5,14 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-node",
+            "type": "node",
             "request": "launch",
             "name": "Launch Program",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\cli.ts",
-            "args": ["./test.txt"],
+            "args": ["C:\\work\\ProfCon\\dff\\T03-3_GMXXL_2811_en-GB_Full.dff"],
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]

@@ -15,9 +15,11 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^17.0.17",
+    "@types/shelljs": "^0.8.11",
     "commander": "^9.0.0",
     "jimp": "^0.16.1",
     "postdfm": "^8.0.3",
+    "shelljs": "^0.8.5",
     "windows-1252": "^3.0.4"
   },
   "devDependencies": {

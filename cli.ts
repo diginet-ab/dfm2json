@@ -2,6 +2,7 @@
 
 import fs from "fs";
 import { postdfm } from "postdfm";
+import path from 'path'
 
 // only if implementing your own plugin
 import { Plugin, Hooks } from "@postdfm/plugin";
@@ -9,6 +10,7 @@ import { findProperty, getPropertyValue, saveAsObject } from "./json.js";
 import { program } from 'commander'
 import { decode as decode1252 } from 'windows-1252'
 import { fileURLToPath } from 'url'
+import shellJs from 'shelljs'
 import { dirname } from 'path'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -86,6 +88,11 @@ const getVersion = async () => {
   return packageJson.version
 }
 
+const changeExtension = (file: string, extension: string) => {
+  const basename = path.basename(file, path.extname(file))
+  return path.join(path.dirname(file), basename + extension)
+}
+
 const main = async () => {
   let version = ''
   try {
@@ -97,14 +104,27 @@ const main = async () => {
   }
   program
     .name('dfm2json')
-    .description('CLI to convert Delphi DFM text files to JSON.')
+    .description('CLI to convert Delphi DFM text files to JSON.\nDefault output file is source file name with extension .json.')
     .version(version)
     .option('-d, --debug', 'Debug info')
-    .argument('<source>', 'Source file')
-    .argument('[target]', 'Target file', './output.json')
+    .argument('<source>', 'Source file (.txt, .dfm or .dff). Unless .txt file is used convert.exe must be available.')
+    .argument('[target]', 'Target file', '')
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .action(async (source: string, target: string, options: Options, command) => {
+      if (target === '') {
+        target = changeExtension(source, '.json')
+      }
+      let createdTxt = false
+      if (path.extname(source) === '.dfm' || path.extname(source) === '.dff') {
+        const txtFile = changeExtension(source, '.txt')
+        createdTxt = !fs.existsSync(txtFile)
+        const result = shellJs.exec(`convert -t "${ source }"`)
+        console.log(result)
+        source = changeExtension(source, '.txt')
+      }
       await convertDfmToJson(source.replaceAll('\\', '/'), target.replaceAll('\\', '/'), options)
+      if (createdTxt)
+        fs.unlinkSync(source)
     })
 
   program.parse()
