@@ -9,11 +9,13 @@ import { Plugin, Hooks } from "@postdfm/plugin";
 import { findProperty, getPropertyValue, saveAsObject } from "./json.js";
 import { program } from 'commander'
 import { decode as decode1252 } from 'windows-1252'
-import { fileURLToPath } from 'url'
+//import { fileURLToPath } from 'url'
 import shellJs from 'shelljs'
-import { dirname } from 'path'
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+//import { dirname } from 'path'
+import {packageDirectory} from 'pkg-dir'
+import { testProtoBuf } from "./protobuf.js";
+//const __filename = fileURLToPath(import.meta.url)
+//const __dirname = dirname(__filename)
 
 type Options = {
   debug: boolean
@@ -93,7 +95,11 @@ const changeExtension = (file: string, extension: string) => {
   return path.join(path.dirname(file), basename + extension)
 }
 
+export let pkgDir: string | undefined
+
 const main = async () => {
+  testProtoBuf()
+  pkgDir = await packageDirectory()
   let version = ''
   try {
     const ver = await getVersion()
@@ -107,7 +113,7 @@ const main = async () => {
     .description('CLI to convert Delphi DFM text files to JSON.\nDefault output file is source file name with extension .json.')
     .version(version)
     .option('-d, --debug', 'Debug info')
-    .argument('<source>', 'Source file (.txt, .dfm or .dff). Unless .txt file is used convert.exe must be available.')
+    .argument('<source>', 'Source file (.txt, .dfm or .dff).')
     .argument('[target]', 'Target file', '')
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .action(async (source: string, target: string, options: Options, command) => {
@@ -118,8 +124,8 @@ const main = async () => {
       if (path.extname(source) === '.dfm' || path.extname(source) === '.dff') {
         const txtFile = changeExtension(source, '.txt')
         createdTxt = !fs.existsSync(txtFile)
-        const result = shellJs.exec(`convert -t "${ source }"`)
-        console.log(result)
+        const result = shellJs.exec(`${ pkgDir }\\convert -t "${ source }"`)
+        console.log(result.toString())
         source = changeExtension(source, '.txt')
       }
       await convertDfmToJson(source.replaceAll('\\', '/'), target.replaceAll('\\', '/'), options)

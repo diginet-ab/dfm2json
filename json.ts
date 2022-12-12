@@ -347,7 +347,7 @@ const saveObject = (childObj: ChildObject, obj: SioxFolderObject | SioxObject = 
             }
                 break
             case 'TVSEdit': {
-                sioxObj.type = childObj.NumericType ? ((childObj.NumericType.indexOf("igned") >= 0) ? 'SWORD' : 'WORD') : 'WORD'
+                sioxObj.type = childObj.NumericType ? ((childObj.NumericType.indexOf("igned") >= 0) ? 'INT' : 'WORD') : 'WORD'
                 sioxObj.bit = childObj.bit ? childObj.bit : undefined
                 sioxObj.bitSize = childObj.bitSize ? (childObj.bitSize != 16 ? childObj.bitSize : undefined) : undefined
                 sioxObj.scale = childObj.scale ? childObj.scale : undefined
@@ -413,12 +413,23 @@ const convertScaleToMinMax = (obj: SioxFolderObject | SioxObject) => {
     }
 }
 
+const addUserLevel = (obj: SioxFolderObject | SioxObject) => {
+    for (const prop in obj) {
+        if (prop === "par") {
+            obj.userLevel = 0
+        }
+        if (typeof obj[prop] === 'object')
+            addUserLevel(obj[prop] as SioxObject)
+    }
+}
+
 export const saveAsObject = async (ast: DObject, fileName: string) => {
     const childObj: ChildObject = {}
     saveChildObject(childObj, ast, undefined)
     const obj = saveObject(childObj)
     renameProperties(obj)
     convertScaleToMinMax(obj)
-    await fsp.writeFile(fileName, JSON.stringify(obj))
+    addUserLevel(obj)
+    await fsp.writeFile(fileName, JSON.stringify(obj, undefined, 2))
 }
 

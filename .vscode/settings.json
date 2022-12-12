@@ -10,10 +10,23 @@
         "hdmta",
         "hämta",
         "igned",
+        "ldelim",
         "lucida",
         "postdfm",
+        "proto",
+        "protobuf",
+        "protoc",
         "secounds",
         "showes",
         "TSIOX"
+    ],
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/objects",
+        ".vscode",
+        ".vscode-insiders",
+        "output.json"
     ]
 }

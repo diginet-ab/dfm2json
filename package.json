@@ -18,8 +18,12 @@
     "@types/shelljs": "^0.8.11",
     "commander": "^9.0.0",
     "jimp": "^0.16.1",
+    "pkg-dir": "^7.0.0",
     "postdfm": "^8.0.3",
+    "protobufjs": "^7.1.2",
     "shelljs": "^0.8.5",
+    "ts-proto": "^1.135.3",
+    "ts-protoc-gen": "^0.15.0",
     "windows-1252": "^3.0.4"
   },
   "devDependencies": {
