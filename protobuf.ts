@@ -1,31 +1,27 @@
-import { AddressBook, Person_PhoneType } from './generated/addressBook.js'
+import { Folder, Parameter } from './generated/VisualSioxForm.js'
 
-const myAddressBook: AddressBook = {
-    people: [
-        {
-            name: "Joe Blogs",
-            phones: [
-                {
-                    phoneNumber: "0123456789",
-                    phoneType: Person_PhoneType.MOBILE
-                }
-            ]
-        },
-        {
-            name: "Jane Smith",
-            phones: [
-                {
-                    phoneNumber: "0987654321",
-                    phoneType: Person_PhoneType.HOME
-                }
-            ]
-        }
-    ]
-}
-
-export const testProtoBuf = async () => {
-    const encoded = AddressBook.encode(myAddressBook).finish()
+export const testProtoBuf = async (obj: { [key: string] : unknown }) => {
+    const form: Folder = {
+        id: 1,
+        name: "root",
+        parameter: undefined,
+        children: []
+    }
+    const convertToProtoBufObject = (obj: { [key: string] : unknown }, folder: Folder) => {
+        Object.keys(obj).map(value => {
+            if (typeof obj[value] === 'object') {
+                folder.children.push({ id: 1, name: value, children: [], parameter: undefined })
+                convertToProtoBufObject(obj[value] as { [key: string] : unknown }, folder.children[folder.children.length - 1])
+            } else {
+                if (!folder.parameter)
+                    folder.parameter = { id: 1, name: folder.name, par: 0 } as Parameter
+                (folder.parameter as unknown as { [key: string] : unknown })[value] = obj[value] as unknown
+            }
+        })
+    }
+    convertToProtoBufObject(obj, form)
+    const encoded = Folder.encode(form).finish()
     console.log(encoded)
-    const decoded = AddressBook.decode(encoded)
+    const decoded = Folder.decode(encoded)
     console.log(decoded)
 }

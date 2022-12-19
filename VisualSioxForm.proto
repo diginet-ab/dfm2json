@@ -1,24 +1,16 @@
 syntax = "proto3";
 
-package tutorial;
+package visualsiox;
 
-message Item {
-  optional string name = 1;
-
-  enum PhoneType {
-    MOBILE = 0;
-    HOME = 1;
-    WORK = 2;
-  }
-
-  message PhoneNumber {
-    optional string phoneNumber = 1;
-    optional PhoneType phoneType = 2;
-  }
-
-  repeated PhoneNumber phones = 2;
+message Parameter {
+  int32 id = 1;
+  string name = 2;
+  int32 par = 3;
 }
 
-message AddressBook {
-  repeated Person people = 1;
+message Folder {
+  int32 id = 1;
+  repeated Folder children = 2;
+  string name = 3;
+  Parameter parameter = 4;
 }

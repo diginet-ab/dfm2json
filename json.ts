@@ -7,6 +7,7 @@ import { IdentifierValue } from '@postdfm/ast/value/identifierValue'
 import { VariantList } from '@postdfm/ast/list/variantList'
 import { BinaryStringList } from '@postdfm/ast/list/binaryStringList'
 import fsp from 'fs/promises'
+import cjson from 'compressed-json'
 
 type ChildObject = {
     [key: string]: undefined | string | number | { [key: string]: number } | ChildObject[]
@@ -42,8 +43,8 @@ type SioxFolderObject = {
 type SioxObject = {
     [key: string]: undefined | string | number | boolean | { [key: string]: number } | SioxObject | SioxParameterObject | { key: string, value: number }[]
     type: string
-    name: string
-    displayName: string
+    //name: string
+    //displayName: string
     par: number
     bitSize?: number
     bit?: number
@@ -423,7 +424,7 @@ const addUserLevel = (obj: SioxFolderObject | SioxObject) => {
     }
 }
 
-export const saveAsObject = async (ast: DObject, fileName: string) => {
+export const saveAsObject = async (ast: DObject, fileName: string, cb: (obj: {[key: string]: unknown }) => void) => {
     const childObj: ChildObject = {}
     saveChildObject(childObj, ast, undefined)
     const obj = saveObject(childObj)
@@ -431,5 +432,9 @@ export const saveAsObject = async (ast: DObject, fileName: string) => {
     convertScaleToMinMax(obj)
     addUserLevel(obj)
     await fsp.writeFile(fileName, JSON.stringify(obj, undefined, 2))
+    
+    if (cb)
+        cb(obj as unknown as { [ key: string ]: unknown})
+
 }
 

@@ -22,7 +22,7 @@ type Options = {
 }
 
 class SomePlugin extends Plugin {
-  constructor(public fileName: string) {
+  constructor(public fileName: string, public cb: (obj: { [key: string] : unknown }) => void) {
     super()
   }
   install(hooks: Hooks) {
@@ -39,7 +39,7 @@ class SomePlugin extends Plugin {
       // manipulate AST here
       if (ast.type == 'TSIOXForm') {
         //saveAsJson(ast, './out.json')
-        saveAsObject(ast, this.fileName)
+        saveAsObject(ast, this.fileName, this.cb)
       }
       if (ast.type == 'TImage') {
         const p = findProperty(ast, 'Picture.Data')
@@ -55,7 +55,7 @@ class SomePlugin extends Plugin {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const convertDfmToJson = async (source: string, dest: string, options: Options) => {
+export const convertDfmToJson = async (source: string, dest: string, options: Options, cb: (obj: { [key: string] : unknown }) => void) => {
   const fileName = source
 
   let dfm = fs.readFileSync(
@@ -67,7 +67,7 @@ export const convertDfmToJson = async (source: string, dest: string, options: Op
   dfm = decode1252(dfm)
 
   const runner = await postdfm({
-    plugins: [new SomePlugin(dest)],
+    plugins: [new SomePlugin(dest, cb)],
   });
 
   await runner.process(dfm, {
@@ -98,7 +98,6 @@ const changeExtension = (file: string, extension: string) => {
 export let pkgDir: string | undefined
 
 const main = async () => {
-  testProtoBuf()
   pkgDir = await packageDirectory()
   let version = ''
   try {
@@ -128,7 +127,9 @@ const main = async () => {
         console.log(result.toString())
         source = changeExtension(source, '.txt')
       }
-      await convertDfmToJson(source.replaceAll('\\', '/'), target.replaceAll('\\', '/'), options)
+      await convertDfmToJson(source.replaceAll('\\', '/'), target.replaceAll('\\', '/'), options, (obj) => {
+        testProtoBuf(obj)
+      })
       if (createdTxt)
         fs.unlinkSync(source)
     })
