@@ -128,7 +128,7 @@ const main = async () => {
         source = changeExtension(source, '.txt')
       }
       await convertDfmToJson(source.replaceAll('\\', '/'), target.replaceAll('\\', '/'), options, (obj) => {
-        testProtoBuf(obj)
+        //testProtoBuf(obj)
       })
       if (createdTxt)
         fs.unlinkSync(source)
