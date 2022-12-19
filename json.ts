@@ -355,6 +355,14 @@ const saveObject = (childObj: ChildObject, obj: SioxFolderObject | SioxObject = 
                 sioxObj.offset = childObj.offset ? childObj.offset : undefined
             }
                 break
+            case 'TVSEdit32': {
+                sioxObj.type = childObj.NumericType ? ((childObj.NumericType.indexOf("igned") >= 0) ? 'LINT' : 'DWORD') : 'DWORD'
+                sioxObj.bit = childObj.bit ? childObj.bit : undefined
+                sioxObj.bitSize = childObj.bitSize ? (childObj.bitSize != 32 ? childObj.bitSize : undefined) : undefined
+                sioxObj.scale = childObj.scale ? childObj.scale : undefined
+                sioxObj.offset = childObj.offset ? childObj.offset : undefined
+            }
+                break
             case 'TVSText': {
                 sioxObj.type = 'STRING'
             }
@@ -424,7 +432,7 @@ const addUserLevel = (obj: SioxFolderObject | SioxObject) => {
     }
 }
 
-export const saveAsObject = async (ast: DObject, fileName: string, cb: (obj: {[key: string]: unknown }) => void) => {
+export const saveAsObject = async (ast: DObject, fileName: string, cb: (obj: { [key: string]: unknown }) => void) => {
     const childObj: ChildObject = {}
     saveChildObject(childObj, ast, undefined)
     const obj = saveObject(childObj)
@@ -432,9 +440,9 @@ export const saveAsObject = async (ast: DObject, fileName: string, cb: (obj: {[k
     convertScaleToMinMax(obj)
     addUserLevel(obj)
     await fsp.writeFile(fileName, JSON.stringify(obj, undefined, 2))
-    
+
     if (cb)
-        cb(obj as unknown as { [ key: string ]: unknown})
+        cb(obj as unknown as { [key: string]: unknown })
 
 }
 
