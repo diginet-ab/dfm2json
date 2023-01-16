@@ -400,7 +400,7 @@ const convertScaleToMinMax = (obj: SioxFolderObject | SioxObject) => {
     for (const prop in obj) {
         if (prop === "scale") {
             let scale = obj[prop] as number | undefined
-            let offset = obj.offset as number | undefined
+            let offset = (typeof obj.offset === 'number') ? obj.offset : 0
             if (scale === undefined)
                 scale = 1
             if (offset === undefined)
@@ -414,8 +414,11 @@ const convertScaleToMinMax = (obj: SioxFolderObject | SioxObject) => {
             const signed = type.indexOf("S") === 0
             obj.rawMin = signed ? -Math.pow(2, bitSize) : 0
             obj.rawMax = signed ? (Math.pow(2, bitSize - 1) - 1) : (Math.pow(2, bitSize) - 1)
-            obj.min = obj.rawMin / (obj.scale as number)
-            obj.max = obj.rawMax / (obj.scale as number)
+            obj.min = (obj.rawMin - offset) / (obj.scale as number)
+            obj.max = (obj.rawMax - offset) / (obj.scale as number)
+            delete obj[prop]
+            if (obj.offset !== undefined)
+                delete obj['offset']
         }
         if (typeof obj[prop] === 'object')
             convertScaleToMinMax(obj[prop] as SioxObject)
