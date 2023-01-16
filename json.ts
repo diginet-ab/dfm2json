@@ -336,13 +336,13 @@ const saveObject = (childObj: ChildObject, obj: SioxFolderObject | SioxObject = 
             sioxObj.par = 0
         switch (childObj.type) {
             case 'TVSCheckbox': {
-                sioxObj.type = 'BIT'
+                sioxObj.type = 'BOOL'
                 sioxObj.bit = childObj.bit
                 //sioxObj.bitSize = 1
             }
                 break
             case 'TVSRadioGroup': {
-                sioxObj.type = 'BIT'
+                sioxObj.type = 'BOOL'
                 sioxObj.bit = childObj.bit
                 //sioxObj.bitSize = 1
             }
