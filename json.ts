@@ -425,23 +425,12 @@ const convertScaleToMinMax = (obj: SioxFolderObject | SioxObject) => {
     }
 }
 
-const addUserLevel = (obj: SioxFolderObject | SioxObject) => {
-    for (const prop in obj) {
-        if (prop === "par") {
-            obj.userLevel = 0
-        }
-        if (typeof obj[prop] === 'object')
-            addUserLevel(obj[prop] as SioxObject)
-    }
-}
-
 export const saveAsObject = async (ast: DObject, fileName: string, cb: (obj: { [key: string]: unknown }) => void) => {
     const childObj: ChildObject = {}
     saveChildObject(childObj, ast, undefined)
     const obj = saveObject(childObj)
     renameProperties(obj)
     convertScaleToMinMax(obj)
-    addUserLevel(obj)
     await fsp.writeFile(fileName, JSON.stringify(obj, undefined, 2))
 
     if (cb)

@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\cli.ts",
-            "args": ["C:\\work\\ProfCon\\dff\\T03-3_GMXXL_2811_en-GB_Full.dff"],
+            "args": ["C:\\work\\ProfCon\\t03-gmxxl\\DFF\\T03-5_GMXXL_2902_en-GB_Full.dff"],
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]
