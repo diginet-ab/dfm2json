@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url'
 import shellJs from 'shelljs'
 import { dirname } from 'path'
 import {packageDirectory} from 'pkg-dir'
-import { testProtoBuf } from "./protobuf.js";
+import { getInstalledPath } from 'get-installed-path'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
@@ -98,7 +98,7 @@ const changeExtension = (file: string, extension: string) => {
 export let pkgDir: string | undefined
 
 const main = async () => {
-  pkgDir = await packageDirectory()
+  pkgDir = await getInstalledPath('@diginet/dfm2json')
   let version = ''
   try {
     const ver = await getVersion()
