@@ -416,7 +416,7 @@ const convertScaleToMinMax = (obj: SioxFolderObject | SioxObject) => {
             obj.rawMax = signed ? (Math.pow(2, bitSize - 1) - 1) : (Math.pow(2, bitSize) - 1)
             obj.min = (obj.rawMin - offset) / (obj.scale as number)
             obj.max = (obj.rawMax - offset) / (obj.scale as number)
-            delete obj[prop]
+            delete obj['scale']
             if (obj.offset !== undefined)
                 delete obj['offset']
         }

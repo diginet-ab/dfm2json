@@ -123,7 +123,7 @@ const main = async () => {
       if (path.extname(source) === '.dfm' || path.extname(source) === '.dff') {
         const txtFile = changeExtension(source, '.txt')
         createdTxt = !fs.existsSync(txtFile)
-        const result = shellJs.exec(`${ pkgDir }\\convert -t "${ source }"`)
+        const result = shellJs.exec(`${ pkgDir }\\convert.exe -t "${ source }"`)
         console.log(result.toString())
         source = changeExtension(source, '.txt')
       }
